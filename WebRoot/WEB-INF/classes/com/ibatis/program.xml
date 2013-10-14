@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="program">
+
+	<typeAlias alias="Program" type="com.bean.Program" />
+	<select id="findLastWeekPro" parameterClass="String" resultClass="Program">
+		select * from program where plandate > #date# or compdate > plandate or state=0
+	</select>
+
+</sqlMap>
