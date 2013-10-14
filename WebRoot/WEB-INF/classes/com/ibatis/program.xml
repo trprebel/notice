@@ -8,5 +8,8 @@
 	<select id="findLastWeekPro" parameterClass="String" resultClass="Program">
 		select * from program where plandate > #date# or compdate > plandate or state=0
 	</select>
+	<select id="findThisWeekPro" parameterClass="com.util.PageProgram" resultClass="Program">
+		select * from program where plandate > #date# limit $start$,$length$
+	</select>
 
 </sqlMap>
