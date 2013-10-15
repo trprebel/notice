@@ -10,6 +10,12 @@ public class Program {
 	private String weekprocess;
 	private String plandate;
 	private String compdate;
+	private String evaluatedate;
+	private String systestdate;
+	private String modelevaluatedate;
+	private String subassdate;
+	
+	
 	public int getProid() {
 		return proid;
 	}
@@ -58,4 +64,29 @@ public class Program {
 	public void setPlandate(String plandate) {
 		this.plandate = plandate;
 	}
+	public String getEvaluatedate() {
+		return evaluatedate;
+	}
+	public void setEvaluatedate(String evaluatedate) {
+		this.evaluatedate = evaluatedate;
+	}
+	public String getSystestdate() {
+		return systestdate;
+	}
+	public void setSystestdate(String systestdate) {
+		this.systestdate = systestdate;
+	}
+	public String getModelevaluatedate() {
+		return modelevaluatedate;
+	}
+	public void setModelevaluatedate(String modelevaluatedate) {
+		this.modelevaluatedate = modelevaluatedate;
+	}
+	public String getSubassdate() {
+		return subassdate;
+	}
+	public void setSubassdate(String subassdate) {
+		this.subassdate = subassdate;
+	}
+	
 }
