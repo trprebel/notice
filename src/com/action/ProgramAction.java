@@ -84,7 +84,6 @@ public class ProgramAction extends ActionSupport{
 			successful.addText("yes");
 			
 			
-			int i;
 			for (Program program : lastWeekPros) {
 				System.out.println(program.getProid());
 			}
