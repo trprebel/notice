@@ -7,7 +7,7 @@ public class Program {
 	private String tvtype;
 	private int state;
 	private String chargeperson;
-	private String weekprocess;
+	private String weekprogress;
 	private String plandate;
 	private String compdate;
 	private String evaluatedate;
@@ -46,11 +46,11 @@ public class Program {
 	public void setChargeperson(String chargeperson) {
 		this.chargeperson = chargeperson;
 	}
-	public String getWeekprocess() {
-		return weekprocess;
+	public String getWeekprogress() {
+		return weekprogress;
 	}
-	public void setWeekprocess(String weekprocess) {
-		this.weekprocess = weekprocess;
+	public void setWeekprogress(String weekprogress) {
+		this.weekprogress = weekprogress;
 	}
 	public String getCompdate() {
 		return compdate;

@@ -5,14 +5,17 @@
 <sqlMap namespace="program">
 
 	<typeAlias alias="Program" type="com.bean.Program" />
-	<select id="findThisWeekAllPro" resultClass="Program">
+	<select id="findAllUnFinishPro" resultClass="Program">
 		select * from program where state=0
 	</select>
-	<select id="findThisWeekPagePro" parameterClass="com.util.PageProgram" resultClass="Program">
+	<select id="findUnFinishPagePro" parameterClass="com.util.PageProgram" resultClass="Program">
 		select * from program where state=0 limit $start$,$length$
 	</select>
 	<select id="findFinishCount" parameterClass="map" resultClass="int">
 		<![CDATA[select count(*) from program where compdate >= #monday# and compdate <=#sunday#]]>
+	</select>
+	<select id="findUnFinishCount" resultClass="int">
+		select count(*) from program where state=0
 	</select>
 	<select id="findThisMonthEmphasisEve" parameterClass="map" resultClass="Program">
 		<![CDATA[select * from program where 
@@ -28,5 +31,10 @@
 	<select id="findVersion" resultClass="int">
 		select version from version
 	</select>
+	
+	<insert id="createProgram" parameterClass="Program" >
+		insert into program (proname,tvtype,state,chargeperson,weekprogress,plandate,evaluatedate,systestdate,modelevaluatedate,subassdate)
+		values(#proname#,#tvtype#,0,#chargeperson#,#weekprogress#,#plandate#,#evaluatedate#,#systestdate#,#modelevaluatedate#,#subassdate#)
+	</insert>
 
 </sqlMap>

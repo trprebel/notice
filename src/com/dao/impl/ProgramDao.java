@@ -8,15 +8,15 @@ import com.util.PageProgram;
 
 public class ProgramDao {
 
-	/**查找上周项目*/
-	public List<Program> findThisWeekAllPro() throws Exception
+	/**查找所有未结项的项目*/
+	public List<Program> findAllUnFinishPro() throws Exception
 	{
-		return (List<Program>) SqlMap.getSqlMapClient().queryForList("findThisWeekAllPro");
+		return (List<Program>) SqlMap.getSqlMapClient().queryForList("findAllUnFinishPro");
 	}
-	/**查找本周项目*/
-	public List<Program> findThisWeekPagePro(PageProgram pageProgram) throws Exception
+	/**查找分页后未结项的项目*/
+	public List<Program> findUnFinishPagePro(PageProgram pageProgram) throws Exception
 	{
-		return (List<Program>)SqlMap.getSqlMapClient().queryForList("findThisWeekPagePro",pageProgram);
+		return (List<Program>)SqlMap.getSqlMapClient().queryForList("findUnFinishPagePro",pageProgram);
 	}
 	/**查找本月重点事件*/
 	public List<Program> findThisMonthEmphasisEve(Map<String, String> map) throws Exception
@@ -35,6 +35,16 @@ public class ProgramDao {
 	/**查找版本号*/
 	public Integer findVersion() throws Exception{
 		return (Integer) SqlMap.getSqlMapClient().queryForObject("findVersion");
+	}
+	/**创建项目*/
+	public void createProgram(Program program) throws Exception
+	{
+		SqlMap.getSqlMapClient().insert("createProgram",program);
+	}
+	/**查找未完成项目数量*/
+	public Integer findUnFinishCount() throws Exception
+	{
+		return (Integer) SqlMap.getSqlMapClient().queryForObject("findUnFinishCount");
 	}
 	
 }

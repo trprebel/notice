@@ -15,6 +15,7 @@ import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
+
 import com.bean.Program;
 import com.dao.impl.ProgramDao;
 import com.opensymphony.xwork2.ActionSupport;
@@ -29,11 +30,91 @@ public class ProgramAction extends ActionSupport{
 
 
 	private static final long serialVersionUID = 1L;
+	
+	private String proid;
+	private String proname;
+	private String tvtype;
+	private String state;
+	private String chargeperson;
+	private String weekprogress;
+	private String plandate;
+	private String evaluatedate;
+	private String systestdate;
+	private String modelevaluatedate;
+	private String subassdate;
 	private String page;
-	public Paginator paginator=new Paginator(8);
+	public String messages;
+	public Paginator paginator=new Paginator(5);
 	private PageProgram pageProgram=new PageProgram();
 	private ProgramDao programDao=new ProgramDao();
 
+	
+	public String getProid() {
+		return proid;
+	}
+	public void setProid(String proid) {
+		this.proid = proid;
+	}
+	public String getProname() {
+		return proname;
+	}
+	public void setProname(String proname) {
+		this.proname = proname;
+	}
+	public String getTvtype() {
+		return tvtype;
+	}
+	public void setTvtype(String tvtype) {
+		this.tvtype = tvtype;
+	}
+	public String getChargeperson() {
+		return chargeperson;
+	}
+	public void setChargeperson(String chargeperson) {
+		this.chargeperson = chargeperson;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getWeekprogress() {
+		return weekprogress;
+	}
+	public void setWeekprogress(String weekprogress) {
+		this.weekprogress = weekprogress;
+	}
+	public String getPlandate() {
+		return plandate;
+	}
+	public void setPlandate(String plandate) {
+		this.plandate = plandate;
+	}
+	public String getEvaluatedate() {
+		return evaluatedate;
+	}
+	public void setEvaluatedate(String evaluatedate) {
+		this.evaluatedate = evaluatedate;
+	}
+	public String getSystestdate() {
+		return systestdate;
+	}
+	public void setSystestdate(String systestdate) {
+		this.systestdate = systestdate;
+	}
+	public String getModelevaluatedate() {
+		return modelevaluatedate;
+	}
+	public void setModelevaluatedate(String modelevaluatedate) {
+		this.modelevaluatedate = modelevaluatedate;
+	}
+	public String getSubassdate() {
+		return subassdate;
+	}
+	public void setSubassdate(String subassdate) {
+		this.subassdate = subassdate;
+	}
 	public String getPage() {
 		return page;
 	}
@@ -52,13 +133,104 @@ public class ProgramAction extends ActionSupport{
 	public void setPageProgram(PageProgram pageProgram) {
 		this.pageProgram = pageProgram;
 	}
+	
+	public String create()
+	{
+		try {
+			//System.out.println("create");
+			Program program=new Program();
+			program.setProname(proname);
+			program.setTvtype(tvtype);
+			program.setChargeperson(chargeperson);
+			program.setPlandate(plandate);
+			program.setEvaluatedate(evaluatedate);
+			program.setSystestdate(systestdate);
+			program.setModelevaluatedate(modelevaluatedate);
+			program.setSubassdate(subassdate);
+			program.setWeekprogress("项目开始！");
+			programDao.createProgram(program);
+			messages="创建成功！";
+			return "create";
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return "error";
+		}
+	}
+	/**
+	 * 请求项目列表
+	 */
+	public String requestlist()
+	{
+		try {
+			
+			
+			pageProgram.setStart(paginator.getOffset());
+			pageProgram.setLength(paginator.getPageSize());
+			int allRow = programDao.findUnFinishCount();
+			//System.out.println(allRow);
+			if(allRow==0){
+				paginator.setData(0, null);
+				return "success";
+			}
+			Date currDate=new Date();
+			List<Program> programs=programDao.findUnFinishPagePro(pageProgram);
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			for (Program program : programs) {
+				Date d_plandate=format.parse(program.getPlandate());
+				if (d_plandate.getTime()>=currDate.getTime())
+				{
+					if(((d_plandate.getTime()-currDate.getTime())/(24*60*60*1000))<4)
+					{
+						program.setState(2);
+					}
+					else program.setState(1);
+				}
+				else {
+					program.setState(3);
+				}
+
+			}
+			//List list = videoDao.findPageList(program, Constants.IBATIS_VIDEO);
+			paginator.setData(allRow, programs);
+			return "programlist";
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return "error";
+		}
+	}
+	public String requestedit()
+	{
+		try {
+			System.out.println(proid);
+			return "edit";
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return "error";
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * 本周概况
 	 */
 	public void week() {
 		try {
 			//System.out.println(page);
-			String sdate;
+			//String sdate;
 			Calendar monday = Calendar.getInstance();//当前周周一日期
 			Calendar sunday = Calendar.getInstance();//当前周周日日期
 			Date currDate=new Date();
@@ -80,9 +252,9 @@ public class ProgramAction extends ActionSupport{
 			pageProgram.setStart((Integer.parseInt(page)-1)*8);
 			pageProgram.setLength(8);
 			//pageProgram.setDate(sdate);
-			List<Program> thisWeekPagePro=programDao.findThisWeekPagePro(pageProgram);
+			List<Program> thisWeekPagePro=programDao.findUnFinishPagePro(pageProgram);
 
-			List<Program> thisWeekAllPro=programDao.findThisWeekAllPro();
+			List<Program> thisWeekAllPro=programDao.findAllUnFinishPro();
 
 			Document document = DocumentHelper.createDocument();
 			HttpServletResponse response = ServletActionContext.getResponse();
@@ -90,7 +262,7 @@ public class ProgramAction extends ActionSupport{
 			PrintWriter out = response.getWriter();
 			Element result = document.addElement("result");
 			Element cmd = result.addElement("cmd");
-			cmd.addText("weekprocess");
+			cmd.addText("weekprogress");
 			Element successful = result.addElement("successful");
 			successful.addText("yes");
 			Element version=result.addElement("version");
@@ -176,7 +348,7 @@ public class ProgramAction extends ActionSupport{
 				Element chargeperson=e_program.addElement("chargeperson");
 				chargeperson.addText(program.getChargeperson());
 				Element weekProgress=e_program.addElement("weekprogress");
-				weekProgress.addText(program.getWeekprocess());
+				weekProgress.addText(program.getWeekprogress());
 				Element plandate=e_program.addElement("plandate");
 				plandate.addText(program.getPlandate());
 			}
@@ -194,7 +366,7 @@ public class ProgramAction extends ActionSupport{
 				PrintWriter out = response.getWriter();
 				Element result = document.addElement("result");
 				Element cmd = result.addElement("cmd");
-				cmd.addText("weekprocess");
+				cmd.addText("weekprogress");
 				Element successful = result.addElement("successful");
 				successful.addText("no");
 				Element errorno=result.addElement("errorno");
@@ -294,12 +466,6 @@ public class ProgramAction extends ActionSupport{
 				}
 
 			}
-
-
-
-
-
-
 
 
 			out.println(document.asXML());
