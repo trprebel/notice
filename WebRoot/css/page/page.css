@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+IMG {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+.warp-page {
+	BORDER-RIGHT: #c2c2c2 1px solid; BORDER-TOP: 0px; BORDER-LEFT: #c2c2c2 1px solid; LINE-HEIGHT: 26px; height:26px; BORDER-BOTTOM: #c2c2c2 1px solid; HEIGHT: 22px
+}
+.warp-page LI {
+	MARGIN-TOP: 5px; FONT-SIZE: 12px; FLOAT: left; MARGIN-LEFT: 10px; LINE-HEIGHT: 22px; LIST-STYLE-TYPE: none
+}
+UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.textfield-input01 {
+	BORDER-RIGHT: #b5b8c8 1px solid; BORDER-TOP: #b5b8c8 1px solid; MARGIN-BOTTOM: 1px; MARGIN-LEFT: 5px; BORDER-LEFT: #b5b8c8 1px solid; WIDTH: 30px; MARGIN-RIGHT: 5px; BORDER-BOTTOM: #b5b8c8 1px solid; HEIGHT: 18px; TEXT-ALIGN: center
+}
+.func_name_labe{ font-size:12px; BACKGROUND-POSITION: center 50%;}
