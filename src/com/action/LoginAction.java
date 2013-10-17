@@ -23,6 +23,7 @@ public class LoginAction extends ActionSupport{
 	private String username;
 	private String password;
 	private User user;
+	private String loginCode;
 	private UserDao userdao=new UserDao();
 	public String messages;
 	public String getUsername() {
@@ -36,6 +37,12 @@ public class LoginAction extends ActionSupport{
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getLoginCode() {
+		return loginCode;
+	}
+	public void setLoginCode(String loginCode) {
+		this.loginCode = loginCode;
 	}
 	//登录模块
 	public String login()
@@ -55,6 +62,18 @@ public class LoginAction extends ActionSupport{
 			}
 			else if(user.getPassword().equals(getPassword()))
 			{
+				String  validatecode=(String)sessions.getAttribute("rand");
+				//1.验证码不正确
+				if(validatecode==null)
+				{
+					messages="验证码不存在！";
+					return "login";
+				}
+				if(!validatecode.equals(loginCode))
+				{
+					messages="验证码不正确！";
+					return "login";
+				}
 				sessions.setAttribute("user", user);
 				RecordLog.recordlog("登陆系统！");
 				return "success";

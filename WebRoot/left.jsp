@@ -101,15 +101,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
                         </tr>
                     </table></td>
                   </tr>
-                  <tr>
-                    <td height="23"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
-                    <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="requestlog.action" target="operatorframe">日志</a></span></td>
-                        </tr>
-                    </table></td>
-                  </tr>
-                </table></td>
+                  </table></td>
               </tr>
               <tr>
                 <td height="5"><img src="images/main_52.gif" width="151" height="5" /></td>
@@ -119,127 +111,12 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
           
         </table></td>
       </tr>
-      <tr>
-        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td height="23" background="images/main_47.gif" id="imgmenu2" class="menu_title" onmouseover="this.className='menu_title2';" onclick="showsubmenu(2)" onmouseout="this.className='menu_title';" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td width="18%">&nbsp;</td>
-                  <td width="82%" class="STYLE1">ÏµÍ³¹ÜÀí</td>
-                </tr>
-            </table></td>
-          </tr>
-          <tr>
-            <td background="images/main_51.gif" id="submenu2"><div class="sec_menu" >
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                  <tr>
-                    <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td width="16%" height="25"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
-                          <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">ÏµÍ³ÅäÖÃ</span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                        <tr>
-                          <td height="23"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
-                          <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">ÐÞ¸ÄÓÃ»§ÃÜÂë</span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                        <tr>
-                          <td height="23"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
-                          <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">Êý¾Ý¸üÐÂ</span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                        <tr>
-                          <td height="23"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
-                          <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">ÍøÕ¾Î¬»¤</span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                    </table></td>
-                  </tr>
-                  <tr>
-                    <td height="5"><img src="images/main_52.gif" width="151" height="5" /></td>
-                  </tr>
-                </table>
-            </div></td>
-          </tr>
-        </table>          </td>
-      </tr>
-      <tr>
-        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td height="23" background="images/main_47.gif" id="imgmenu3" class="menu_title" onmouseover="this.className='menu_title2';" onclick="showsubmenu(3)" onmouseout="this.className='menu_title';" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td width="18%">&nbsp;</td>
-                  <td width="82%" class="STYLE1">°²È«¹ÜÀí</td>
-                </tr>
-            </table></td>
-          </tr>
-          <tr>
-            <td background="images/main_51.gif" id="submenu3" style="DISPLAY: none"><div class="sec_menu" >
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                  <tr>
-                    <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td width="16%" height="25"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
-                          <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">ÆóÒµ°²È«</span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                        <tr>
-                          <td height="23"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
-                          <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">ÐÅÏ¢°²È«¹ÜÀí</span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                        <tr>
-                          <td height="23"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
-                          <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">°²È«Éó¼Æ</span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                        <tr>
-                          <td height="23"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
-                          <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">ÍøÕ¾°²È«</span></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                    </table></td>
-                  </tr>
-                  <tr>
-                    <td height="5"><img src="images/main_52.gif" width="151" height="5" /></td>
-                  </tr>
-                </table>
-            </div></td>
-          </tr>
-        </table></td>
-      </tr>
+     
     </table></td>
   </tr>
   <tr>
     <td height="18" background="images/main_58.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td height="18" valign="bottom"><div align="center" class="STYLE3">°æ±¾£º2008V1.0</div></td>
-      </tr>
+      
     </table></td>
   </tr>
 </table>
