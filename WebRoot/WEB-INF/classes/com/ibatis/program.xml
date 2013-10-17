@@ -9,13 +9,13 @@
 		select * from program where state=0
 	</select>
 	<select id="findUnFinishPagePro" parameterClass="com.util.PageProgram" resultClass="Program">
-		select * from program where state=0 limit $start$,$length$
+		select * from program where state=0 and proname regexp #sproname# and chargeperson regexp #schargeperson# limit $start$,$length$
 	</select>
 	<select id="findFinishCount" parameterClass="map" resultClass="int">
 		<![CDATA[select count(*) from program where compdate >= #monday# and compdate <=#sunday#]]>
 	</select>
-	<select id="findUnFinishCount" resultClass="int">
-		select count(*) from program where state=0
+	<select id="findUnFinishCount" parameterClass="com.util.PageProgram" resultClass="int">
+		select count(*) from program where state=0 and proname regexp #sproname# and chargeperson regexp #schargeperson#
 	</select>
 	<select id="findThisMonthEmphasisEve" parameterClass="map" resultClass="Program">
 		<![CDATA[select * from program where 
@@ -26,7 +26,10 @@
 		]]>
 	</select>
 	<select id="findThisTraceEve" parameterClass="int" resultClass="Program">
-		select t2.* from importanteve t1,program t2 where t1.month=$month$ and t1.event=t2.proid
+		select t2.* from importanteve t1,program t2 where t1.month=$month$ and t1.proid=t2.proid
+	</select>
+	<select id="findThisTraceEveNo" parameterClass="int" resultClass="int">
+		select proid from importanteve where month=$month$
 	</select>
 	<select id="findVersion" resultClass="int">
 		select version from version
@@ -45,6 +48,9 @@
 	<update id="modifyProgram" parameterClass="Program">
 		update program set proname=#proname#,tvtype=#tvtype#,state=$state$,chargeperson=#chargeperson#,weekprogress=#weekprogress#,plandate=#plandate#,compdate=#compdate#,evaluatedate=#evaluatedate#,systestdate=#systestdate#,modelevaluatedate=#modelevaluatedate#,subassdate=#subassdate#
 		where proid=$proid$
+	</update>
+	<update id="addImportantPro" parameterClass="com.bean.ImportantPro">
+		update importanteve set proid=$proid$ where month=$month$ or month=$nextmonth$ or month=$nnextmonth$
 	</update>
 
 </sqlMap>

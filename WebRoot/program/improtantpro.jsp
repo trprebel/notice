@@ -8,7 +8,6 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 	User user = (User) session.getAttribute("user");
-	
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -91,14 +90,21 @@ body {
 				cs[i].style.backgroundColor="";
 				}
 	}
+	function editpro(id)
+	{
+		document.getElementById("proid").value=id;
+		var f1=document.getElementById("programlistform");
+		f1.action="requesteditPROGRAM.action";
+		f1.submit();
+	}
 
 </script>
 
 </head>
 
 <body>
-	<form action="requestlog.action" id="loglistform"
-		name="loglistform" method="post">
+	<form action="requestimproPROGRAM.action" id="programlistform"
+		name="programlistform" method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td height="30" background="program/images/tab_05.gif"><table
@@ -117,30 +123,11 @@ body {
 															<img src="program/images/tb.gif" width="16" height="16" />
 														</div>
 													</td>
-													<td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[项目管理]-[日志]</td>
+													<td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[项目管理]-[重点项目]</td>
 												</tr>
 											</table>
 										</td>
-										<td width="54%"><table border="0" align="right"
-												cellpadding="0" cellspacing="0">
-												<tr>
-													<td width="100"><table width="90%" border="0"
-															cellpadding="0" cellspacing="0">
-															<tr>
-																<td class="STYLE1"><div align="center">
-																		<img src="program/images/22.gif" width="14"
-																			height="14" onclick="addimportant()"/>
-																	</div>
-																</td>
-																<td class="STYLE1"><div align="center"><a href="javascript:addimportant()">添加重点项目</a></div>
-																</td>
-															</tr>
-														</table>
-													</td>
-													
-												</tr>
-											</table>
-										</td>
+										
 									</tr>
 								</table>
 							</td>
@@ -160,48 +147,123 @@ body {
 									cellspacing="1" bgcolor="b5d6e6" onmouseover="changeto()"
 									onmouseout="changeback()">
 									<tr>
-										<td width="5%" height="22" background="program/images/bg.gif"
+									
+										<td width="3%" height="22" background="program/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
-												<span class="STYLE1">日志ID</span>
-											</div>
-										</td>
-										<td width="5%" height="22" background="program/images/bg.gif"
-											bgcolor="#FFFFFF"><div align="center">
-												<span class="STYLE1">用户</span>
-											</div>
-										</td>
-										<td width="80%" height="22" background="program/images/bg.gif"
-											bgcolor="#FFFFFF"><div align="center">
-												<span class="STYLE1">操作</span>
+												<span class="STYLE1">项目ID</span>
 											</div>
 										</td>
 										<td width="10%" height="22" background="program/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
-												<span class="STYLE1">时间</span>
+												<span class="STYLE1">项目名称</span>
 											</div>
 										</td>
-										
+										<td width="10%" height="22" background="program/images/bg.gif"
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">电视类型</span>
+											</div>
+										</td>
+										<td width="5%" background="program/images/bg.gif"
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">当前状态</span>
+											</div>
+										</td>
+										<td width="5%" height="22" background="program/images/bg.gif"
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">责任人</span>
+											</div>
+										</td>
+										<td width="15%" height="22" background="program/images/bg.gif"
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">本周进展</span>
+											</div>
+										</td>
+										<td width="8%" height="22" background="program/images/bg.gif"
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">计划完成时间</span>
+											</div>
+										</td>
+										<td width="8%" height="22" background="program/images/bg.gif"
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">评审会议时间</span>
+											</div>
+										</td>
+										<td width="8%" height="22" background="program/images/bg.gif"
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">系统测试时间</span>
+											</div>
+										</td>
+										<td width="8%" height="22" background="program/images/bg.gif"
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">样评时间</span>
+											</div>
+										</td>
+										<td width="8%" height="22" background="program/images/bg.gif"
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">主观评价时间</span>
+											</div>
+										</td>
+										<td width="8%" height="22" background="program/images/bg.gif"
+											bgcolor="#FFFFFF" class="STYLE1"><div align="center">基本操作</div>
+										</td>
 									</tr>
-									<c:forEach var="log" items="${paginator.items}">
+									
 										<tr>
+											
 											<td height="20" bgcolor="#FFFFFF"><div align="center"
 													class="STYLE1">
-													<div align="center">${log.logid}</div>
+													<div align="center">${improtantpro.proid}</div>
 												</div></td>
 											<td height="20" bgcolor="#FFFFFF"><div align="center">
-													<span class="STYLE1">${log.username }</span>
+													<span class="STYLE1">${improtantpro.proname }</span>
 												</div></td>
 											<td height="20" bgcolor="#FFFFFF"><div align="center">
-													<span class="STYLE1">${log.operate }</span>
+													<span class="STYLE1">${improtantpro.tvtype }</span>
 												</div></td>
-										
+											<td bgcolor="#FFFFFF"><div align="center">
+													<span class="STYLE1">
+													<c:if test="${improtantpro.state==1}">
+													正常
+													</c:if>
+													<c:if test="${improtantpro.state==2}">
+													风险
+													</c:if>
+													<c:if test="${improtantpro.state==3}">
+													超期
+													</c:if>
+													</span>
+												</div></td>
 											<td height="20" bgcolor="#FFFFFF"><div align="center">
-													<span class="STYLE1">${log.time}</span>
+													<span class="STYLE1">${improtantpro.chargeperson}</span>
 												</div></td>
-								
+											<td height="20" bgcolor="#FFFFFF"><div align="center">
+													<span class="STYLE1">${improtantpro.weekprogress}</span>
+												</div></td>
+											<td height="20" bgcolor="#FFFFFF"><div align="center">
+													<span class="STYLE1">${improtantpro.plandate}</span>
+												</div></td>
+											<td height="20" bgcolor="#FFFFFF"><div align="center">
+													<span class="STYLE1">${improtantpro.evaluatedate}</span>
+												</div></td>
+											<td height="20" bgcolor="#FFFFFF"><div align="center">
+													<span class="STYLE1">${improtantpro.systestdate}</span>
+												</div></td>
+											<td height="20" bgcolor="#FFFFFF"><div align="center">
+													<span class="STYLE1">${improtantpro.modelevaluatedate}</span>
+												</div></td>
+											<td height="20" bgcolor="#FFFFFF"><div align="center">
+													<span class="STYLE1">${improtantpro.subassdate}</span>
+												</div></td>
+											<td height="20" bgcolor="#FFFFFF"><div align="center">
+													<span class="STYLE4">
+													<a href="javascript:editpro('${improtantpro.proid}')">
+													<img
+														src="program/images/edt.gif" width="16" height="16" />编辑</a></span>
+													
+												</div></td>
 
 										</tr>
-									</c:forEach>
+									
 									
 								</table>
 							</td>
@@ -222,61 +284,7 @@ body {
 							</td>
 							<td><table width="100%" border="0" cellspacing="0"
 									cellpadding="0">
-									<tr>
-										<td class="STYLE4">&nbsp;&nbsp;共有
-											${paginator.totalRowsAmount} 条记录，当前第 ${paginator.currentPage
-											}/${paginator.totalPages } 页</td>
-										<td>
-
-											<table border="0" align="right" cellpadding="0"
-												cellspacing="0">
-												<tr>
-													<td width="40"><img src="program/images/first.gif"
-														width="37" height="15" onclick="javascript:goPage(1)" />
-													</td>
-													<td width="45">
-													
-													<img src="program/images/back.gif"
-														width="43" height="15"
-														<c:if test="${paginator.currentPage!=1 }">
-														onclick="javascript:goPage('${paginator.currentPage-1 }')" 
-														</c:if>
-														/>
-													
-													</td>
-													<td width="45"><input name='paginator.currentPage'
-														id='paginator.currentPage' type='hidden'
-														value='${paginator.currentPage }' />
-														<input name='totalPages'
-														id='totalPages' type='hidden'
-														value='${paginator.totalPages }' />
-														
-														<img
-														src="program/images/next.gif" width="43" height="15"
-														<c:if test="${paginator.currentPage<paginator.totalPages}">
-														onclick="javascript:goPage('${paginator.currentPage+1 }')" 
-														</c:if>
-														/>
-														
-													</td>
-													<td width="40"><img src="program/images/last.gif"
-														width="37" height="15"
-														onclick="javascript:goPage('${paginator.totalPages}')" />
-													</td>
-													<td width="100"><div align="center">
-															<span class="STYLE1">转到第 <input name="gopagenum"
-																id="gopagenum" type="text" size="4"
-																style="height:16px; width:20px; border:1px solid #999999;" />
-																页 </span>
-														</div>
-													</td>
-													<td width="40"><img src="program/images/go.gif"
-														width="37" height="15"
-														onclick="javascript:goPage(document.getElementById('gopagenum').value)" />
-													</td>
-												</tr>
-											</table></td>
-									</tr>
+									
 								</table>
 							</td>
 							<td width="16"><img src="program/images/tab_20.gif"

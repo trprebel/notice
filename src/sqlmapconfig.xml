@@ -20,4 +20,5 @@ PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibatis.com/dtd/sq
 	</transactionManager>
 	<sqlMap resource="com/ibatis/user.xml" />
 	<sqlMap resource="com/ibatis/program.xml" />
+	<sqlMap resource="com/ibatis/log.xml" />
 </sqlMapConfig>

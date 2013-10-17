@@ -9,6 +9,7 @@ import org.apache.struts2.ServletActionContext;
 import com.bean.User;
 import com.dao.impl.UserDao;
 import com.opensymphony.xwork2.ActionSupport;
+import com.util.RecordLog;
 
 public class LoginAction extends ActionSupport{
 
@@ -55,6 +56,7 @@ public class LoginAction extends ActionSupport{
 			else if(user.getPassword().equals(getPassword()))
 			{
 				sessions.setAttribute("user", user);
+				RecordLog.recordlog("µÇÂ½ÏµÍ³£¡");
 				return "success";
 			}
 			else

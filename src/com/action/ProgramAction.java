@@ -16,13 +16,14 @@ import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-
 import com.bean.EWProgress;
+import com.bean.ImportantPro;
 import com.bean.Program;
 import com.dao.impl.ProgramDao;
 import com.opensymphony.xwork2.ActionSupport;
 import com.util.PageProgram;
 import com.util.Paginator;
+import com.util.RecordLog;
 
 /**项目管理相关操作
  * @author zxj
@@ -32,7 +33,7 @@ public class ProgramAction extends ActionSupport{
 
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String proid;
 	private String proname;
 	private String tvtype;
@@ -45,13 +46,16 @@ public class ProgramAction extends ActionSupport{
 	private String systestdate;
 	private String modelevaluatedate;
 	private String subassdate;
+	private String sproname="";
+	private String schargeperson="";
 	private String page;
 	public String messages;
+	private String addresult;
 	public Paginator paginator=new Paginator(5);
 	private PageProgram pageProgram=new PageProgram();
 	private ProgramDao programDao=new ProgramDao();
 
-	
+
 	public String getProid() {
 		return proid;
 	}
@@ -88,7 +92,7 @@ public class ProgramAction extends ActionSupport{
 	public void setWeekprogress(String weekprogress) {
 		this.weekprogress = weekprogress;
 	}
-	
+
 	public String getOriweekprogress() {
 		return oriweekprogress;
 	}
@@ -125,11 +129,30 @@ public class ProgramAction extends ActionSupport{
 	public void setSubassdate(String subassdate) {
 		this.subassdate = subassdate;
 	}
+	
+	public String getSproname() {
+		return sproname;
+	}
+	public void setSproname(String sproname) {
+		this.sproname = sproname;
+	}
+	public String getSchargeperson() {
+		return schargeperson;
+	}
+	public void setSchargeperson(String schargeperson) {
+		this.schargeperson = schargeperson;
+	}
 	public String getPage() {
 		return page;
 	}
 	public void setPage(String page) {
 		this.page = page;
+	}
+	public String getAddresult() {
+		return addresult;
+	}
+	public void setAddresult(String addresult) {
+		this.addresult = addresult;
 	}
 	public Paginator getPaginator() {
 		return paginator;
@@ -143,7 +166,7 @@ public class ProgramAction extends ActionSupport{
 	public void setPageProgram(PageProgram pageProgram) {
 		this.pageProgram = pageProgram;
 	}
-	
+
 	public String create()
 	{
 		try {
@@ -159,6 +182,7 @@ public class ProgramAction extends ActionSupport{
 			program.setSubassdate(subassdate);
 			program.setWeekprogress("项目开始！");
 			programDao.createProgram(program);
+			RecordLog.recordlog("创建项目："+proname);
 			messages="创建成功！";
 			return "create";
 		} catch (Exception e) {
@@ -172,16 +196,25 @@ public class ProgramAction extends ActionSupport{
 	 */
 	public String requestlist()
 	{
+		HttpServletRequest request=ServletActionContext.getRequest();
 		try {
-			
-			
+
+
 			pageProgram.setStart(paginator.getOffset());
 			pageProgram.setLength(paginator.getPageSize());
-			int allRow = programDao.findUnFinishCount();
+			if (sproname.equals("")) {
+				pageProgram.setSproname(".");
+			}
+			else pageProgram.setSproname(sproname);
+			if (schargeperson.equals("")) {
+				pageProgram.setSchargeperson(".");
+			}
+			else pageProgram.setSchargeperson(schargeperson);
+			int allRow = programDao.findUnFinishCount(pageProgram);
 			//System.out.println(allRow);
 			if(allRow==0){
 				paginator.setData(0, null);
-				return "success";
+				return "programlist";
 			}
 			Date currDate=new Date();
 			List<Program> programs=programDao.findUnFinishPagePro(pageProgram);
@@ -201,6 +234,17 @@ public class ProgramAction extends ActionSupport{
 				}
 
 			}
+			int month=Calendar.getInstance().get(Calendar.MONTH)+1;
+			int impro=programDao.findThisTraceEveNo(month);
+			if (pageProgram.getSproname().equals(".")) {
+				pageProgram.setSproname("");
+			}
+			else pageProgram.setSproname(sproname);
+			if (pageProgram.getSchargeperson().equals(".")) {
+				pageProgram.setSchargeperson("");
+			}
+			request.setAttribute("pageprogram",pageProgram);
+			request.setAttribute("impro", impro);
 			//List list = videoDao.findPageList(program, Constants.IBATIS_VIDEO);
 			paginator.setData(allRow, programs);
 			return "programlist";
@@ -220,6 +264,7 @@ public class ProgramAction extends ActionSupport{
 			//System.out.println(proid);
 			Program program=programDao.findProgramById(Integer.parseInt(proid));
 			request.setAttribute("program", program);
+			//System.out.println(program.getChargeperson());
 			return "edit";
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -227,7 +272,7 @@ public class ProgramAction extends ActionSupport{
 			return "error";
 		}
 	}
-	
+
 	/**
 	 * 编辑项目
 	 */
@@ -263,8 +308,10 @@ public class ProgramAction extends ActionSupport{
 				ewProgress.setWeeknum(weeknum);
 				programDao.addWeekProgress(ewProgress);
 			}
-			
-			
+			RecordLog.recordlog("修改项目属性为："+proname+" "+tvtype+" "+state+" "+chargeperson+" "
+			+weekprogress+" "+plandate+" "+ evaluatedate+" "+systestdate+" "+modelevaluatedate+" "+subassdate);
+
+
 			return "requestlist";
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -272,19 +319,71 @@ public class ProgramAction extends ActionSupport{
 			return "error";
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * 添加重点项目
+	 */
+	public String addimportant()
+	{
+		try {
+			//System.out.println(proid);
+			Calendar currdate=Calendar.getInstance();
+			int month=currdate.get(Calendar.MONTH)+1;
+			//month=12;
+			ImportantPro imPro=new ImportantPro();
+			imPro.setProid(Integer.parseInt(proid));
+			imPro.setMonth(month);
+			imPro.setNextmonth((month+1)%12);
+			imPro.setNnextmonth((month+2)%12);
+			programDao.addImportantPro(imPro);
+			RecordLog.recordlog("将proid为"+proid+"的项目设为"+month+"月重点项目！");
+			addresult="添加成功！";
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			addresult="添加失败！";
+		}
+		return "addimportant";
+	}
+	/**请求重点项目*/
+	public String requestimpro() {
+		try {
+			HttpServletRequest request=ServletActionContext.getRequest();
+			int month=Calendar.getInstance().get(Calendar.MONTH);
+			Program program=programDao.findThisMonthTraceEve(month);
+			Date currDate=new Date();
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			Date d_plandate=format.parse(program.getPlandate());
+			if (d_plandate.getTime()>=currDate.getTime())
+			{
+				if(((d_plandate.getTime()-currDate.getTime())/(24*60*60*1000))<4)
+				{
+					program.setState(2);
+				}
+				else program.setState(1);
+			}
+			else {
+				program.setState(3);
+			}
+			request.setAttribute("improtantpro", program);
+			return "impro";
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return "error";
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 	/**
 	 * 本周概况
 	 */

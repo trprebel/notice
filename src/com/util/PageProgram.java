@@ -4,6 +4,21 @@ public class PageProgram {
 
 	public int start;
 	public int length;
+	private String sproname;
+	private String schargeperson;
+
+	public String getSproname() {
+		return sproname;
+	}
+	public void setSproname(String sproname) {
+		this.sproname = sproname;
+	}
+	public String getSchargeperson() {
+		return schargeperson;
+	}
+	public void setSchargeperson(String schargeperson) {
+		this.schargeperson = schargeperson;
+	}
 	public Integer sort;
 	public String date;
 	public String getDate() {

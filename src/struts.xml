@@ -16,6 +16,14 @@
 			<result name="edit">/program/editpro.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="requestlist" type="chain">requestlistPROGRAM</result>
+			<result name="addimportant" type="json">
+				<param name="root">addresult</param>
+			</result>
+			<result name="impro">/program/improtantpro.jsp</result>
+		</action>
+		<action name="requestlog" class="com.action.LogAction" method="requestlog">
+			<result name="success">/program/log.jsp</result>
+			<result name="error">/error.jsp</result>
 		</action>
 	</package>
 	
