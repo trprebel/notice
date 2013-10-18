@@ -1,6 +1,7 @@
 package com.action;
 
 
+import javax.management.relation.Role;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -50,10 +51,23 @@ public class LoginAction extends ActionSupport{
 
 		try
 		{
+			
 			HttpServletRequest request = ServletActionContext.getRequest();
 			HttpSession sessions = request.getSession();
-
+			String  validatecode=(String)sessions.getAttribute("rand");
+			//1.验证码不正确
+			if(validatecode==null)
+			{
+				messages="验证码不存在！";
+				return "login";
+			}
+			if(!validatecode.equals(loginCode))
+			{
+				messages="验证码不正确！";
+				return "login";
+			}
 			user=this.userdao.findUserByName(getUsername());
+
 			if(user==null)
 			{
 				messages="用户名不存在！";
@@ -62,18 +76,7 @@ public class LoginAction extends ActionSupport{
 			}
 			else if(user.getPassword().equals(getPassword()))
 			{
-				String  validatecode=(String)sessions.getAttribute("rand");
-				//1.验证码不正确
-				if(validatecode==null)
-				{
-					messages="验证码不存在！";
-					return "login";
-				}
-				if(!validatecode.equals(loginCode))
-				{
-					messages="验证码不正确！";
-					return "login";
-				}
+				
 				sessions.setAttribute("user", user);
 				RecordLog.recordlog("登陆系统！");
 				return "success";
@@ -86,6 +89,9 @@ public class LoginAction extends ActionSupport{
 			}
 			//System.out.println(user.getUsername());
 			//System.out.println(user.getPassword());
+			//System.out.println(user.getRole());
+			//System.out.println(user.getEdit());
+			//System.out.println(user.getAddimpro());
 		}
 		catch(Exception e)
 		{

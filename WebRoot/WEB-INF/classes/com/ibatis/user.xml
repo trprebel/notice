@@ -6,7 +6,7 @@
 
 	<typeAlias alias="User" type="com.bean.User" />
 	<select id="findUserByName" resultClass="User" parameterClass="java.lang.String">
-		select * from user where username=#username#
+		select * from user,role where username=#username# and user.roleid=role.roleid
     </select>
 
 </sqlMap>

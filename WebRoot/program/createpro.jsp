@@ -41,6 +41,7 @@ body {
 	width: 180px;
 	height: 20px;
 }
+
 -->
 </style>
 <meta http-equiv="pragma" content="no-cache">
@@ -51,6 +52,7 @@ body {
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
 </head>
 <script language="javascript" type="text/javascript"
 	src="<%=basePath%>My97DatePicker/WdatePicker.js"></script>
@@ -111,6 +113,8 @@ body {
   }
   </script>
 <body>
+<form action="createPROGRAM" name="cproform" id="cproform"
+		method="post">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td height="30" background="program/images/tab_05.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -164,35 +168,40 @@ body {
         <td><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="b5d6e6" >
           <tr>
             <td width="40%" height="28" bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">项目名称： </span></div></td>
-            <td bgcolor="#FFFFFF"><input class="button_chuang" type="text" name="textfield" /></td>
+            <td bgcolor="#FFFFFF"><input class="button_chuang" type="text" name="proname" id="proname" /></td>
           </tr>
           <tr>
             <td height="28" bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">电视类型：</span></div></td>
-            <td bgcolor="#FFFFFF"><input class="button_chuang" type="text" name="textfield2" /></td>
+            <td bgcolor="#FFFFFF"><input class="button_chuang" type="text" name="tvtype" id="tvtype" /></td>
             </tr>
           <tr>
             <td height="28" bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">责任人： </span></div></td>
-            <td bgcolor="#FFFFFF"><input class="button_chuang" type="text" name="textfield3" /></td>
+            <td bgcolor="#FFFFFF"><input class="button_chuang" type="text" name="chargeperson" id="chargeperson" /></td>
             </tr>
           <tr>
             <td height="28" bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">计划完成时间：</span></div></td>
-            <td bgcolor="#FFFFFF"><input class="button_chuang" type="text" name="textfield4" /></td>
+            <td bgcolor="#FFFFFF"><input class="Wdate" name="plandate" id="plandate"
+					type="text" onClick="WdatePicker()" /></td>
             </tr>
           <tr>
             <td height="28" bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">评审会议时间：</span></div></td>
-            <td bgcolor="#FFFFFF"><input class="button_chuang" type="text" name="textfield5" /></td>
+            <td bgcolor="#FFFFFF"><input class="Wdate" name="evaluatedate" id="evaluatedate"
+					type="text" onClick="WdatePicker()" /></td>
             </tr>
           <tr>
             <td height="28" bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">系统测试时间：</span></div></td>
-            <td bgcolor="#FFFFFF"><input class="button_chuang" type="text" name="textfield6" /></td>
+            <td bgcolor="#FFFFFF"><input class="Wdate" name="systestdate" id="systestdate"
+					type="text" onClick="WdatePicker()" /></td>
             </tr>
           <tr>
             <td height="28" bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">样评时间：</span></div></td>
-            <td bgcolor="#FFFFFF"><input class="button_chuang" type="text" name="textfield7" /></td>
+            <td bgcolor="#FFFFFF"><input class="Wdate" name="modelevaluatedate"
+					id="modelevaluatedate" type="text" onClick="WdatePicker()" /></td>
             </tr>
           <tr>
             <td height="28" bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">主观评价时间： </span></div></td>
-            <td bgcolor="#FFFFFF"><input class="button_chuang" type="text" name="textfield8" /></td>
+            <td bgcolor="#FFFFFF"><input class="Wdate" name="subassdate" id="subassdate"
+					type="text" onClick="WdatePicker()" /></td>
             </tr>
           <tr>
             <td height="28" colspan="2" bgcolor="#FFFFFF" align="center"><input type="button" onClick="javascript:submitfun()" value="创建">&nbsp;<input type="reset" value="重置"></td>
@@ -212,58 +221,7 @@ body {
     </table></td>
   </tr>
 </table>
-	<form action="createPROGRAM" name="cproform" id="cproform"
-		method="post">
-		<table align="center" id="createpro">
-			<caption>创建项目</caption>
-			<tr>
-				<td>项目名称：</td>
-				<td><input type="text" name="proname" id="proname"></td>
-			</tr>
-			<tr>
-				<td>电视类型：</td>
-				<td><input type="text" name="tvtype" id="tvtype"></td>
-			</tr>
-			<tr>
-				<td>责任人：</td>
-				<td><input type="text" name="chargeperson" id="chargeperson">
-				</td>
-			</tr>
-			<tr>
-				<td>计划完成时间：</td>
-				<td><input class="Wdate" name="plandate" id="plandate"
-					type="text" onClick="WdatePicker()" /></td>
-			</tr>
-			<tr>
-				<td>评审会议时间：</td>
-				<td><input class="Wdate" name="evaluatedate" id="evaluatedate"
-					type="text" onClick="WdatePicker()" /></td>
-			</tr>
-			<tr>
-				<td>系统测试时间：</td>
-				<td><input class="Wdate" name="systestdate" id="systestdate"
-					type="text" onClick="WdatePicker()" /></td>
-			</tr>
-			<tr>
-				<td>样评时间：</td>
-				<td><input class="Wdate" name="modelevaluatedate"
-					id="modelevaluatedate" type="text" onClick="WdatePicker()" />
-				</td>
-			</tr>
-			<tr>
-				<td>主观评价时间：</td>
-				<td><input class="Wdate" name="subassdate" id="subassdate"
-					type="text" onClick="WdatePicker()" /></td>
-			</tr>
-			<tr>
-				<td><input type="button" onClick="javascript:submitfun()"
-					value="创建">
-				</td>
-				<td><input type="reset" value="重置">
-				</td>
-			</tr>
-		</table>
-	</form>
+</form>
 
 </body>
 <script type="text/javascript">

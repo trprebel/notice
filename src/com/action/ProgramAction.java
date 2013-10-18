@@ -10,6 +10,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.dom4j.Document;
@@ -19,7 +20,9 @@ import org.dom4j.Element;
 import com.bean.EWProgress;
 import com.bean.ImportantPro;
 import com.bean.Program;
+import com.bean.User;
 import com.dao.impl.ProgramDao;
+import com.dao.impl.UserDao;
 import com.opensymphony.xwork2.ActionSupport;
 import com.util.PageProgram;
 import com.util.Paginator;
@@ -260,9 +263,18 @@ public class ProgramAction extends ActionSupport{
 	public String requestedit()
 	{
 		HttpServletRequest request=ServletActionContext.getRequest();
+//		HttpSession session=request.getSession();
 		try {
 			//System.out.println(proid);
 			Program program=programDao.findProgramById(Integer.parseInt(proid));
+//			User user=(User)session.getAttribute("user");
+//			if (user.getRole().equals("manager")) {//用户为项目经理
+//				if (!user.getUsername().equals(program.getChargeperson())) {
+//					return "nopower";
+//				}
+//			}
+//			
+			
 			request.setAttribute("program", program);
 			//System.out.println(program.getChargeperson());
 			return "edit";
@@ -468,7 +480,7 @@ public class ProgramAction extends ActionSupport{
 			activePro.addText(i_activePro+"");
 			exceedPro.addText(i_exceedPro+"");
 			arrivePro.addText(i_arrivePro+"");
-			finishPro.addText(i_arrivePro+"");
+			finishPro.addText(i_finishPro+"");
 			finishRate.addText(i_finishRate+"%");
 
 			Element record=result.addElement("record");

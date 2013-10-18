@@ -13,7 +13,7 @@ User user=(User)session.getAttribute("user");
 </head>
 
 <frameset rows="98,*,8" frameborder="no" border="0" framespacing="0">
-  <frame src="top.html" name="topFrame" scrolling="no" noresize="noresize" id="topFrame" />
+  <frame src="top.jsp" name="topFrame" scrolling="no" noresize="noresize" id="topFrame" />
   <frame src="center.html" name="mainFrame" id="mainFrame" />
   <frame src="down.html" name="bottomFrame" scrolling="no" noresize="noresize" id="bottomFrame" />
 </frameset>
