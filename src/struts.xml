@@ -25,6 +25,17 @@
 			<result name="success">/program/log.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="*NOTICE" class="com.action.NoticeAction" method="{1}">
+			
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="*ACTIVITY" class="com.action.ActivityAction" method="{1}">
+			
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="show" class="com.action.TVshowAction" method="show">
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 	
 </struts>

@@ -16,6 +16,57 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `activity`
+--
+
+DROP TABLE IF EXISTS `activity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `activity` (
+  `activityid` int(6) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `isshow` int(1) NOT NULL DEFAULT '1',
+  `createdate` timestamp NOT NULL DEFAULT '2012-12-31 16:00:00',
+  PRIMARY KEY (`activityid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `activity`
+--
+
+LOCK TABLES `activity` WRITE;
+/*!40000 ALTER TABLE `activity` DISABLE KEYS */;
+INSERT INTO `activity` VALUES (1,'台山温泉',1,'2012-12-31 16:00:00');
+/*!40000 ALTER TABLE `activity` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `activityimg`
+--
+
+DROP TABLE IF EXISTS `activityimg`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `activityimg` (
+  `imgid` int(11) NOT NULL AUTO_INCREMENT,
+  `activityid` int(6) NOT NULL DEFAULT '0',
+  `imgpath` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`imgid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `activityimg`
+--
+
+LOCK TABLES `activityimg` WRITE;
+/*!40000 ALTER TABLE `activityimg` DISABLE KEYS */;
+INSERT INTO `activityimg` VALUES (1,1,'fwerfgfretert'),(2,1,'grehrhdrtzvd');
+/*!40000 ALTER TABLE `activityimg` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `ewprogress`
 --
 
@@ -91,6 +142,33 @@ LOCK TABLES `log` WRITE;
 /*!40000 ALTER TABLE `log` DISABLE KEYS */;
 INSERT INTO `log` VALUES (1,'admin','登陆系统！','2013-10-16 18:57:33'),(2,'admin','登陆系统！','2013-10-17 06:59:57'),(3,'admin','登陆系统！','2013-10-17 07:00:49'),(4,'admin','登陆系统！','2013-10-17 07:01:56'),(5,'admin','登陆系统！','2013-10-17 07:09:15'),(6,'admin','登陆系统！','2013-10-17 07:12:42'),(7,'admin','登陆系统！','2013-10-17 07:15:44'),(8,'admin','登陆系统！','2013-10-17 07:20:19'),(9,'admin','登陆系统！','2013-10-17 07:22:18'),(10,'admin','登陆系统！','2013-10-17 07:23:31'),(11,'admin','登陆系统！','2013-10-17 07:24:47'),(12,'admin','登陆系统！','2013-10-17 07:25:40'),(13,'admin','登陆系统！','2013-10-17 07:26:41'),(14,'admin','登陆系统！','2013-10-17 07:27:04'),(15,'admin','登陆系统！','2013-10-17 07:44:37'),(16,'admin','登陆系统！','2013-10-17 08:50:42'),(17,'admin','登陆系统！','2013-10-17 08:52:04'),(18,'admin','登陆系统！','2013-10-17 08:54:15'),(19,'admin','登陆系统！','2013-10-17 08:56:52'),(20,'admin','登陆系统！','2013-10-17 09:03:48'),(21,'admin','登陆系统！','2013-10-17 09:34:00'),(22,'admin','登陆系统！','2013-10-17 09:35:04'),(23,'admin','登陆系统！','2013-10-17 09:37:12'),(24,'admin','登陆系统！','2013-10-17 09:39:01'),(25,'admin','登陆系统！','2013-10-17 09:43:21'),(26,'admin','登陆系统！','2013-10-17 09:44:15'),(27,'admin','登陆系统！','2013-10-17 09:45:05'),(28,'admin','登陆系统！','2013-10-17 09:46:44'),(29,'admin','登陆系统！','2013-10-17 09:50:23'),(30,'admin','登陆系统！','2013-10-17 09:58:36'),(31,'admin','登陆系统！','2013-10-17 10:00:52'),(32,'admin','登陆系统！','2013-10-17 10:01:00'),(33,'admin','登陆系统！','2013-10-17 10:01:27'),(34,'admin','登陆系统！','2013-10-17 10:04:46'),(35,'admin','登陆系统！','2013-10-17 10:05:53'),(36,'admin','登陆系统！','2013-10-17 10:09:33'),(37,'admin','登陆系统！','2013-10-17 10:11:53'),(38,'admin','登陆系统！','2013-10-17 10:12:26'),(39,'admin','登陆系统！','2013-10-17 12:07:38'),(40,'admin','登陆系统！','2013-10-17 12:34:30'),(41,'admin','登陆系统！','2013-10-17 12:36:06'),(42,'admin','登陆系统！','2013-10-17 12:39:19'),(43,'admin','登陆系统！','2013-10-17 12:39:55'),(44,'admin','登陆系统！','2013-10-17 12:40:27'),(45,'admin','登陆系统！','2013-10-17 12:41:33'),(46,'admin','登陆系统！','2013-10-17 12:55:28'),(47,'admin','登陆系统！','2013-10-17 13:02:15'),(48,'admin','登陆系统！','2013-10-17 13:03:00'),(49,'admin','登陆系统！','2013-10-17 13:11:34'),(50,'admin','登陆系统！','2013-10-17 13:18:37'),(51,'admin','登陆系统！','2013-10-17 13:29:02'),(52,'admin','登陆系统！','2013-10-18 00:26:24'),(53,'admin','登陆系统！','2013-10-18 01:45:00'),(54,'admin','登陆系统！','2013-10-18 01:47:11'),(55,'admin','登陆系统！','2013-10-18 01:48:38'),(56,'admin','登陆系统！','2013-10-18 01:52:34'),(57,'admin','登陆系统！','2013-10-18 01:55:23'),(58,'admin','登陆系统！','2013-10-18 01:55:34'),(59,'admin','登陆系统！','2013-10-18 01:56:10'),(60,'admin','登陆系统！','2013-10-18 01:57:58'),(61,'admin','登陆系统！','2013-10-18 02:00:43'),(62,'admin','登陆系统！','2013-10-18 02:01:07'),(63,'admin','登陆系统！','2013-10-18 02:01:50'),(64,'admin','登陆系统！','2013-10-18 02:02:55'),(65,'admin','登陆系统！','2013-10-18 02:03:40'),(66,'admin','登陆系统！','2013-10-18 02:05:08'),(67,'admin','登陆系统！','2013-10-18 02:07:07'),(68,'admin','登陆系统！','2013-10-18 02:07:53'),(69,'admin','登陆系统！','2013-10-18 02:12:47'),(70,'manager','登陆系统！','2013-10-18 02:15:36'),(71,'manager','创建项目：开发项目','2013-10-18 02:18:44'),(72,'manager','登陆系统！','2013-10-18 02:19:58'),(73,'admin','登陆系统！','2013-10-18 02:20:37'),(74,'admin','登陆系统！','2013-10-18 02:25:05'),(75,'admin','登陆系统！','2013-10-18 02:25:12'),(76,'admin','登陆系统！','2013-10-18 02:25:24'),(77,'admin','登陆系统！','2013-10-18 02:25:43'),(78,'admin','登陆系统！','2013-10-18 02:26:43'),(79,'admin','登陆系统！','2013-10-18 02:26:49'),(80,'admin','登陆系统！','2013-10-18 02:28:47'),(81,'admin','登陆系统！','2013-10-18 02:29:09'),(82,'admin','登陆系统！','2013-10-18 02:30:34'),(83,'admin','登陆系统！','2013-10-18 02:32:09'),(84,'admin','登陆系统！','2013-10-18 02:32:13'),(85,'admin','登陆系统！','2013-10-18 02:32:26'),(86,'admin','登陆系统！','2013-10-18 02:35:44'),(87,'admin','登陆系统！','2013-10-18 02:36:06'),(88,'admin','登陆系统！','2013-10-18 02:36:09'),(89,'admin','登陆系统！','2013-10-18 02:36:38'),(90,'admin','登陆系统！','2013-10-18 02:37:38'),(91,'admin','登陆系统！','2013-10-18 02:38:24'),(92,'admin','登陆系统！','2013-10-18 02:39:19'),(93,'admin','登陆系统！','2013-10-18 02:39:31'),(94,'admin','登陆系统！','2013-10-18 02:55:12'),(95,'admin','登陆系统！','2013-10-18 02:55:51'),(96,'admin','登陆系统！','2013-10-18 02:57:22'),(97,'admin','登陆系统！','2013-10-18 03:03:46'),(98,'admin','登陆系统！','2013-10-18 03:05:44'),(99,'admin','登陆系统！','2013-10-18 03:08:50'),(100,'admin','修改项目属性为：1111 1111 0 sdf test edit 2 2013-10-25 2013-09-12 2013-10-15 2013-10-28 2013-11-09','2013-10-18 03:10:07'),(101,'admin','修改项目属性为：awe awe 1 qwe 项目开始！ 2013-10-16 2013-10-16 2013-10-16 2013-10-16 2013-10-16','2013-10-18 03:10:34'),(102,'admin','登陆系统！','2013-10-18 03:30:03'),(103,'manager','登陆系统！','2013-10-18 03:30:26'),(104,'manager','登陆系统！','2013-10-18 03:34:35'),(105,'manager','登陆系统！','2013-10-18 03:35:56'),(106,'user','登陆系统！','2013-10-18 03:38:14'),(107,'user','登陆系统！','2013-10-18 03:38:38'),(108,'manager','登陆系统！','2013-10-18 07:06:03'),(109,'manager','登陆系统！','2013-10-18 07:08:56'),(110,'manager','将proid为8的项目设为10月重点项目！','2013-10-18 07:09:00'),(111,'manager','登陆系统！','2013-10-18 07:10:04'),(112,'admin','登陆系统！','2013-10-18 07:10:39'),(113,'admin','登陆系统！','2013-10-18 07:28:03'),(114,'admin','登陆系统！','2013-10-18 08:32:25'),(115,'manager','登陆系统！','2013-10-18 08:32:43'),(116,'manager','登陆系统！','2013-10-18 08:33:17'),(117,'manager','登陆系统！','2013-10-18 08:34:19');
 /*!40000 ALTER TABLE `log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notice`
+--
+
+DROP TABLE IF EXISTS `notice`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notice` (
+  `noticeid` int(6) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `content` text,
+  `isshow` int(1) NOT NULL DEFAULT '1',
+  `createdate` timestamp NOT NULL DEFAULT '2012-12-31 16:00:00',
+  PRIMARY KEY (`noticeid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notice`
+--
+
+LOCK TABLES `notice` WRITE;
+/*!40000 ALTER TABLE `notice` DISABLE KEYS */;
+INSERT INTO `notice` VALUES (1,'欢迎XX领导莅临指导！','没有质量的数量永远等于零，全体质量人必须要为康佳上万营销将士提供优质产品为利器，为他们在异常激烈的市场竞争中赢得成功创造条件，这是我们全体质量人的历史重任！',1,'2012-12-31 16:00:00'),(2,'欢迎XX领导莅临指导',NULL,0,'2012-12-31 16:00:00');
+/*!40000 ALTER TABLE `notice` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -208,6 +286,29 @@ INSERT INTO `role` VALUES (1,'admin',1,1),(2,'leader',1,1),(3,'dopm',1,1),(4,'us
 UNLOCK TABLES;
 
 --
+-- Table structure for table `showtype`
+--
+
+DROP TABLE IF EXISTS `showtype`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `showtype` (
+  `type` int(1) NOT NULL DEFAULT '0',
+  `url` varchar(500) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `showtype`
+--
+
+LOCK TABLES `showtype` WRITE;
+/*!40000 ALTER TABLE `showtype` DISABLE KEYS */;
+INSERT INTO `showtype` VALUES (3,'http://127.0.0.1:8080/Notice/');
+/*!40000 ALTER TABLE `showtype` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user`
 --
 
@@ -264,4 +365,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-18 18:16:44
+-- Dump completed on 2013-10-21 16:44:07

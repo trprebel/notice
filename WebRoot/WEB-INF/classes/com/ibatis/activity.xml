@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="activity">
+
+	<typeAlias alias="Activity" type="com.bean.Activity" />
+	<select id="findShowActivity" resultClass="Activity">
+		select * from activity where isshow=1
+    </select>
+    <select id="findActivityImgById" parameterClass="int" resultClass="String">
+    	select imgpath from activityimg where activityid=$activityid$
+    </select>
+
+</sqlMap>

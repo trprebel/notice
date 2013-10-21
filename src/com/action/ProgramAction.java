@@ -647,6 +647,25 @@ public class ProgramAction extends ActionSupport{
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+			try {
+				Document document = DocumentHelper.createDocument();
+				HttpServletResponse response = ServletActionContext.getResponse();
+				response.setCharacterEncoding("utf-8");
+				PrintWriter out = response.getWriter();
+				Element result = document.addElement("result");
+				Element cmd = result.addElement("cmd");
+				cmd.addText("weekprogress");
+				Element successful = result.addElement("successful");
+				successful.addText("no");
+				Element errorno=result.addElement("errorno");
+				errorno.addText("2003");
+				out.println(document.asXML());
+				out.flush();
+				out.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
 		}
 	}
 

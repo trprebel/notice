@@ -7,6 +7,11 @@ public class PageProgram {
 	private String sproname;
 	private String schargeperson;
 
+	public PageProgram()
+	{
+		sproname=".";
+		schargeperson=".";
+	}
 	public String getSproname() {
 		return sproname;
 	}
