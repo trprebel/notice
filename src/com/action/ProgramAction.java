@@ -344,8 +344,8 @@ public class ProgramAction extends ActionSupport{
 			ImportantPro imPro=new ImportantPro();
 			imPro.setProid(Integer.parseInt(proid));
 			imPro.setMonth(month);
-			imPro.setNextmonth((month+1)%12);
-			imPro.setNnextmonth((month+2)%12);
+			imPro.setNextmonth((month)%12+1);
+			imPro.setNnextmonth((month+1)%12+1);
 			programDao.addImportantPro(imPro);
 			RecordLog.recordlog("将proid为"+proid+"的项目设为"+month+"月重点项目！");
 			addresult="添加成功！";
@@ -360,7 +360,7 @@ public class ProgramAction extends ActionSupport{
 	public String requestimpro() {
 		try {
 			HttpServletRequest request=ServletActionContext.getRequest();
-			int month=Calendar.getInstance().get(Calendar.MONTH);
+			int month=Calendar.getInstance().get(Calendar.MONTH)+1;
 			Program program=programDao.findThisMonthTraceEve(month);
 			Date currDate=new Date();
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -377,6 +377,7 @@ public class ProgramAction extends ActionSupport{
 				program.setState(3);
 			}
 			request.setAttribute("improtantpro", program);
+			//System.out.println(program.getProname());
 			return "impro";
 		} catch (Exception e) {
 			// TODO: handle exception

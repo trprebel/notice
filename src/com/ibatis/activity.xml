@@ -21,6 +21,13 @@
     	select activityid from activity where title=#title# order by createdate desc limit 1
     </select>
     <insert id="addimage" parameterClass="Activity">
+    	insert into activityimg (activityid,imgpath) values(#activityid#,#imgpath#)
     </insert>
+    <select id="findRecentActivity" resultClass="Activity">
+    	select * from activity order by createdate desc limit 10
+    </select>
+    <update id="setShowActivityById" parameterClass="Integer">
+    	update activity set isshow=1 where activityid=$activityid$
+    </update>
 
 </sqlMap>

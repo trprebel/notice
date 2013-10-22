@@ -249,7 +249,7 @@ body {
 									onmouseout="changeback()">
 									<tr>
 										<td width="3%" height="22" background="program/images/bg.gif"
-											bgcolor="#FFFFFF"><div align="center"></div>
+											bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">重点项</span></div>
 										</td>
 										<td width="3%" height="22" background="program/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
@@ -423,7 +423,7 @@ body {
 													<td width="45"><input name='paginator.currentPage'
 														id='paginator.currentPage' type='hidden'
 														value='${paginator.currentPage }' /> <input
-														name='totalPages' id='totalPages' type='hidden'
+														name='paginator.totalPages' id='paginator.totalPages' type='hidden'
 														value='${paginator.totalPages }' /> <img
 														src="program/images/next.gif" width="43" height="15"
 														<c:if test="${paginator.currentPage<paginator.totalPages}">
