@@ -26,11 +26,14 @@
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="*NOTICE" class="com.action.NoticeAction" method="{1}">
-			
+			<result name="noticelist">/notice/noticelist.jsp</result>
+			<result name="addresult" type="json">
+				<param name="root">addresult</param>
+			</result>
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="*ACTIVITY" class="com.action.ActivityAction" method="{1}">
-			
+			<result name="activitylist">/activity/createactivity.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="show" class="com.action.TVshowAction" method="show">

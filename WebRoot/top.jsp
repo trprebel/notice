@@ -88,7 +88,7 @@ body {
               <tr>
                 <td height="23" valign="bottom"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr> 
-                    <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"> <div align="center" class="STYLE3">业务中心</div></td>
+                    <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'" onclick="window.open('left.jsp','leftframe');window.open('requestlistPROGRAM.action','operatorframe')"> <div align="center" class="STYLE3">项目管理</div></td>
                   </tr>
                 </table></td>
               </tr>
@@ -96,13 +96,13 @@ body {
             <td width="3"><img src="images/main_34.gif" width="3" height="28"></td>
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">系统管理</div></td>
+                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'" onclick="window.open('left_notice.jsp','leftframe');window.open('notice/createnotice.jsp','operatorframe')"><div align="center" class="STYLE3">公告发布</div></td>
               </tr>
             </table></td>
             <td width="3"><img src="images/main_34.gif" width="3" height="28"></td>
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">通讯录</div></td>
+                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'" onclick="window.open('left_activity.jsp','leftframe');window.open('activity/createactivity.jsp','operatorframe')"><div align="center" class="STYLE3">活动展示</div></td>
               </tr>
             </table></td>
             <td width="3"><img src="images/main_34.gif" width="3" height="28"></td>

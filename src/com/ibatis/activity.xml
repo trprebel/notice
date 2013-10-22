@@ -11,5 +11,16 @@
     <select id="findActivityImgById" parameterClass="int" resultClass="String">
     	select imgpath from activityimg where activityid=$activityid$
     </select>
+    <update id="setActivityAllNotShow">
+    	update activity set isshow=0
+    </update>
+    <insert id="createActivity" parameterClass="String">
+    	insert into activity (title,isshow,createdate) value(#title#,1,current_timestamp)
+    </insert>
+    <select id="findLastActivity" parameterClass="String" resultClass="int">
+    	select activityid from activity where title=#title# order by createdate desc limit 1
+    </select>
+    <insert id="addimage" parameterClass="Activity">
+    </insert>
 
 </sqlMap>

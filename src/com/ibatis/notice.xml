@@ -8,5 +8,17 @@
 	<select id="findShowNotice" resultClass="Notice">
 		select * from notice where isshow=1
     </select>
+    <update id="setAllNotShow">
+    	update notice set isshow=0
+    </update>
+    <insert id="createNotice">
+    	insert into notice (title,content,isshow,createdate) values(#title#,#content#,$isshow$,current_timestamp)
+    </insert>
+    <select id="findRecentNotice" resultClass="Notice">
+    	select * from notice order by createdate desc limit 10
+    </select>
+    <update id="setShowById" parameterClass="Integer">
+    	update notice set isshow=1 where noticeid=$noticeid$
+    </update>
 
 </sqlMap>

@@ -16,4 +16,9 @@ public class ActivityDao {
 	{
 		return (List<String>) SqlMap.getSqlMapClient().queryForList("findActivityImgById",activityid);
 	}
+	/**将所有活动都设置为不显示*/
+	public void setAllNotShow() throws Exception 
+	{
+		SqlMap.getSqlMapClient().update("setActivityAllNotShow");
+	}
 }

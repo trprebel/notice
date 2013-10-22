@@ -180,39 +180,7 @@ function uploadProgress(file, bytesLoaded, bytesTotal) {
 	}
 }
 
-function uploadSuccess(file, serverData) {
-	try {
-		if (serverData.substring(0, 7) === "FILEID:") {
-			progress.setStatus("上传失败.");
-            progress.toggleCancel(false);
-            alert(serverData);
-			
-        } else {
-            var currentTime = new Date()
-			var progress = new FileProgress(file, this.customSettings.progressTarget);
-			progress.setComplete();
-			//Calculate upload time
-			var cTime = (Math.ceil(currentTime-iTime)/1000);
-			var zmin = 0;
-			var zsec = 0;
-			zmin = Math.floor(cTime/60);
-			if (zmin < 10) {
-				zmin = "0" + zmin; 
-			}
-			zsec = Math.ceil(cTime % 60);
-			if (zsec < 10) {
-				zsec = "0" + zsec; 
-			}
-			//Show how long the upload took
-			progress.setStatus("上传完成，用时:<b><font color=red> " + zmin + "分:" + zsec + '秒</font></b>');
-			progress.toggleCancel(false);
-			//			uploadSuccessUpdateParent(serverData.substring(7));
-			// addImage("thumbnail.php?id=" + serverData.substring(7));
-        }
-	} catch (ex) {
-		this.debug(ex);
-	}
-}
+
 
 function uploadError(file, errorCode, message) {
 	try {

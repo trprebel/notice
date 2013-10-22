@@ -1,9 +1,15 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <jsp:directive.page import="com.bean.User"/>
+<jsp:directive.page import="com.bean.Navigation"/>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-
+//List<Navigation> programlist=new ArrayList();
+//Navigation program=new Navigation();
+//program.setName("创建项目");
+//program.setUrl("program/createpro.jsp");
+//String navigation=(String)request.getParameter("navigation");
+//System.out.println(navigation);
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
