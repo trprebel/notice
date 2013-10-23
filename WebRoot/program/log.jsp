@@ -170,12 +170,12 @@ body {
 												<span class="STYLE1">用户</span>
 											</div>
 										</td>
-										<td width="80%" height="22" background="program/images/bg.gif"
+										<td width="75%" height="22" background="program/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
 												<span class="STYLE1">操作</span>
 											</div>
 										</td>
-										<td width="10%" height="22" background="program/images/bg.gif"
+										<td width="15%" height="22" background="program/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
 												<span class="STYLE1">时间</span>
 											</div>
@@ -247,8 +247,8 @@ body {
 													<td width="45"><input name='paginator.currentPage'
 														id='paginator.currentPage' type='hidden'
 														value='${paginator.currentPage }' />
-														<input name='totalPages'
-														id='totalPages' type='hidden'
+														<input name='paginator.totalPages'
+														id='paginator.totalPages' type='hidden'
 														value='${paginator.totalPages }' />
 														
 														<img

@@ -73,11 +73,11 @@ body {
 		method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td height="30" background="notice/images/tab_05.gif"><table
+				<td height="30" background="images/images/tab_05.gif"><table
 						width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="12" height="30"><img
-								src="notice/images/tab_03.gif" width="12" height="30" />
+								src="images/images/tab_03.gif" width="12" height="30" />
 							</td>
 							<td><table width="100%" border="0" cellspacing="0"
 									cellpadding="0">
@@ -86,7 +86,7 @@ body {
 												border="0" cellspacing="0" cellpadding="0">
 												<tr>
 													<td width="5%"><div align="center">
-															<img src="notice/images/tb.gif" width="16" height="16" />
+															<img src="images/images/tb.gif" width="16" height="16" />
 														</div>
 													</td>
 													<td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[公告管理]-[发布公告]</td>
@@ -138,7 +138,7 @@ body {
 									</tr>
 								</table>
 							</td>
-							<td width="16"><img src="notice/images/tab_07.gif"
+							<td width="16"><img src="images/images/tab_07.gif"
 								width="16" height="30" />
 							</td>
 						</tr>
@@ -149,7 +149,7 @@ body {
 				<td><table width="100%" border="0" cellspacing="0"
 						cellpadding="0">
 						<tr>
-							<td width="8" background="notice/images/tab_12.gif">&nbsp;</td>
+							<td width="8" background="images/images/tab_12.gif">&nbsp;</td>
 							<td><table width="100%" border="0" cellpadding="0"
 									cellspacing="0" bgcolor="b5d6e6">
 									<tr>
@@ -181,20 +181,20 @@ body {
 									</tr>
 								</table>
 							</td>
-							<td width="8" background="notice/images/tab_15.gif">&nbsp;</td>
+							<td width="8" background="images/images/tab_15.gif">&nbsp;</td>
 						</tr>
 					</table>
 				</td>
 			</tr>
 			<tr>
-				<td height="35" background="notice/images/tab_19.gif"><table
+				<td height="35" background="images/images/tab_19.gif"><table
 						width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="12" height="35"><img
-								src="notice/images/tab_18.gif" width="12" height="35" />
+								src="images/images/tab_18.gif" width="12" height="35" />
 							</td>
 							<td>&nbsp;</td>
-							<td width="16"><img src="notice/images/tab_20.gif"
+							<td width="16"><img src="images/images/tab_20.gif"
 								width="16" height="35" />
 							</td>
 						</tr>

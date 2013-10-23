@@ -133,15 +133,15 @@ body {
 </head>
 
 <body>
-	<form action="requestlistPROGRAM.action" id="programlistform"
-		name="programlistform" method="post">
+	<form action="requestlistNOTICE.action" id="noticelistform"
+		name="noticelistform" method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td height="30" background="notice/images/tab_05.gif"><table
+				<td height="30" background="images/images/tab_05.gif"><table
 						width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="12" height="30"><img
-								src="notice/images/tab_03.gif" width="12" height="30" />
+								src="images/images/tab_03.gif" width="12" height="30" />
 							</td>
 							<td><table width="100%" border="0" cellspacing="0"
 									cellpadding="0">
@@ -150,7 +150,7 @@ body {
 												border="0" cellspacing="0" cellpadding="0">
 												<tr>
 													<td width="5%"><div align="center">
-															<img src="notice/images/tb.gif" width="16" height="16" />
+															<img src="images/images/tb.gif" width="16" height="16" />
 														</div>
 													</td>
 													<td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[公告管理]-[公告列表]</td>
@@ -165,7 +165,7 @@ body {
 															<tr>
 																<td class="STYLE1"><div align="center">
 																		<c:if test="${user.addimpro==1 }">
-																			<img src="notice/images/22.gif" width="14"
+																			<img src="images/images/22.gif" width="14"
 																				height="14" onclick="addshow()" />
 																		</c:if>
 																	</div>
@@ -186,7 +186,7 @@ body {
 									</tr>
 								</table>
 							</td>
-							<td width="16"><img src="notice/images/tab_07.gif"
+							<td width="16"><img src="images/images/tab_07.gif"
 								width="16" height="30" />
 							</td>
 						</tr>
@@ -197,13 +197,13 @@ body {
 				<td><table width="100%" border="0" cellspacing="0"
 						cellpadding="0">
 						<tr>
-							<td width="8" background="notice/images/tab_12.gif">&nbsp;</td>
+							<td width="8" background="images/images/tab_12.gif">&nbsp;</td>
 							<td><table width="100%" border="0" cellpadding="0"
 									cellspacing="1" bgcolor="b5d6e6" style="margin-bottom: 12px;">
 									
 									
 								</table></td>
-							<td width="8" background="notice/images/tab_15.gif">&nbsp;</td>
+							<td width="8" background="images/images/tab_15.gif">&nbsp;</td>
 						</tr>
 					</table></td>
 			</tr>
@@ -211,25 +211,26 @@ body {
 				<td>
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
-							<td width="8" background="notice/images/tab_12.gif">&nbsp;</td>
+							<td width="8" background="images/images/tab_12.gif">&nbsp;</td>
 							<td><table width="100%" border="0" cellpadding="0"
 									cellspacing="1" bgcolor="b5d6e6" onmouseover="changeto()"
 									onmouseout="changeback()">
 									<tr>
-										<td width="3%" height="22" background="notice/images/bg.gif"
-											bgcolor="#FFFFFF"><div align="center"></div>
+										<td width="6%" height="22" background="images/images/bg.gif"
+											bgcolor="#FFFFFF"><div align="center">
+											<span class="STYLE1">显示项</span></div>
 										</td>
-										<td width="10%" height="22" background="notice/images/bg.gif"
+										<td width="10%" height="22" background="images/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
 												<span class="STYLE1">公告标题</span>
 											</div>
 										</td>
-										<td width="*" height="22" background="notice/images/bg.gif"
+										<td width="*" height="22" background="images/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
 												<span class="STYLE1">公告内容</span>
 											</div>
 										</td>
-										<td width="10%" height="22" background="notice/images/bg.gif"
+										<td width="15%" height="22" background="images/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
 												<span class="STYLE1">创建时间</span>
 											</div>
@@ -263,18 +264,17 @@ body {
 								</table>
 							</td>
 
-							<td width="8" background="notice/images/tab_15.gif">&nbsp;
-								<input type="hidden" id="proid" name="proid" />
+							<td width="8" background="images/images/tab_15.gif">&nbsp;
 							</td>
 						</tr>
 					</table></td>
 			</tr>
 			<tr>
-				<td height="35" background="notice/images/tab_19.gif"><table
+				<td height="35" background="images/images/tab_19.gif"><table
 						width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="12" height="35"><img
-								src="notice/images/tab_18.gif" width="12" height="35" />
+								src="images/images/tab_18.gif" width="12" height="35" />
 							</td>
 							<td><table width="100%" border="0" cellspacing="0"
 									cellpadding="0">
@@ -283,7 +283,7 @@ body {
 									</tr>
 								</table>
 							</td>
-							<td width="16"><img src="notice/images/tab_20.gif"
+							<td width="16"><img src="images/images/tab_20.gif"
 								width="16" height="35" />
 							</td>
 						</tr>

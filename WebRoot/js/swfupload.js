@@ -99,7 +99,7 @@ SWFUpload.completeURL = function(url) {
 	}
 	
 	var currentURL = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ":" + window.location.port : "");
-	
+	var path;
 	var indexSlash = window.location.pathname.lastIndexOf("/");
 	if (indexSlash <= 0) {
 		path = "/";

@@ -10,6 +10,7 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 import com.bean.ShowType;
+import com.dao.impl.ProgramDao;
 import com.dao.impl.TVshowDao;
 
 /**显示内容类型相关操作
@@ -36,6 +37,8 @@ public class TVshowAction extends ActivityAction{
 			successful.addText("yes");
 			Element type=result.addElement("type");
 			Element record=result.addElement("record");
+			Element e_version=record.addElement("version");
+			e_version.addText(showType.getVersion()+"");
 			if (showType.getType()==1) {
 				
 				type.addText("1");
@@ -45,6 +48,10 @@ public class TVshowAction extends ActivityAction{
 			}
 			else if(showType.getType()==2){
 				//Element type=record.addElement("type");
+				
+//				ProgramDao programDao=new ProgramDao();
+//				int version=programDao.findVersion();
+//				e_version.addText(version+"");
 				type.addText("2");
 				Element weekurl=record.addElement("weekurl");
 				Element monthurl=record.addElement("monthurl");

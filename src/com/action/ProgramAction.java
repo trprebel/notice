@@ -344,8 +344,8 @@ public class ProgramAction extends ActionSupport{
 			ImportantPro imPro=new ImportantPro();
 			imPro.setProid(Integer.parseInt(proid));
 			imPro.setMonth(month);
-			imPro.setNextmonth((month+1)%12);
-			imPro.setNnextmonth((month+2)%12);
+			imPro.setNextmonth((month)%12+1);
+			imPro.setNnextmonth((month+1)%12+1);
 			programDao.addImportantPro(imPro);
 			RecordLog.recordlog("将proid为"+proid+"的项目设为"+month+"月重点项目！");
 			addresult="添加成功！";
@@ -360,7 +360,7 @@ public class ProgramAction extends ActionSupport{
 	public String requestimpro() {
 		try {
 			HttpServletRequest request=ServletActionContext.getRequest();
-			int month=Calendar.getInstance().get(Calendar.MONTH);
+			int month=Calendar.getInstance().get(Calendar.MONTH)+1;
 			Program program=programDao.findThisMonthTraceEve(month);
 			Date currDate=new Date();
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -377,6 +377,7 @@ public class ProgramAction extends ActionSupport{
 				program.setState(3);
 			}
 			request.setAttribute("improtantpro", program);
+			//System.out.println(program.getProname());
 			return "impro";
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -438,9 +439,9 @@ public class ProgramAction extends ActionSupport{
 			Element successful = result.addElement("successful");
 			successful.addText("yes");
 
-			Element version=result.addElement("version");
-			int i_version=programDao.findVersion();
-			version.addText(i_version+"");
+			//Element version=result.addElement("version");
+			//int i_version=programDao.findVersion();
+			//version.addText(i_version+"");
 
 
 			int i_total=0;
@@ -584,9 +585,9 @@ public class ProgramAction extends ActionSupport{
 			cmd.addText("currmontheve");
 			Element successful = result.addElement("successful");
 			successful.addText("yes");
-			Element version=result.addElement("version");
-			int i_version=programDao.findVersion();
-			version.addText(i_version+"");
+			//Element version=result.addElement("version");
+			//int i_version=programDao.findVersion();
+			//version.addText(i_version+"");
 			Element record=result.addElement("record");
 			Element importantPro=record.addElement("importantpro");
 			importantPro.addAttribute("proname", tracePro.getProname());
@@ -616,26 +617,42 @@ public class ProgramAction extends ActionSupport{
 				if(Integer.parseInt(evaluateMonth)==currMonth)
 				{
 					Element event=e_program.addElement("event");
-					event.addAttribute("type","评审会议");
-					event.addAttribute("date", program.getEvaluatedate());
+					Element type=event.addElement("type");
+					type.addText("评审会议");
+					Element date=event.addElement("date");
+					date.addText(program.getEvaluatedate());
+					//event.addAttribute("type","评审会议");
+					//event.addAttribute("date", program.getEvaluatedate());
 				}
 				if (Integer.parseInt(systestMonth)==currMonth) 
 				{
 					Element event=e_program.addElement("event");
-					event.addAttribute("type","系统测试");
-					event.addAttribute("date", program.getSystestdate());
+					//event.addAttribute("type","系统测试");
+					//event.addAttribute("date", program.getSystestdate());
+					Element type=event.addElement("type");
+					type.addText("系统测试");
+					Element date=event.addElement("date");
+					date.addText(program.getSystestdate());
 				}
 				if(Integer.parseInt(modelevaluate)==currMonth)
 				{
 					Element event=e_program.addElement("event");
-					event.addAttribute("type","样评");
-					event.addAttribute("date", program.getModelevaluatedate());
+					//event.addAttribute("type","样评");
+					//event.addAttribute("date", program.getModelevaluatedate());
+					Element type=event.addElement("type");
+					type.addText("样评");
+					Element date=event.addElement("date");
+					date.addText(program.getModelevaluatedate());
 				}
 				if(Integer.parseInt(subass)==currMonth)
 				{
 					Element event=e_program.addElement("event");
-					event.addAttribute("type","主观评价");
-					event.addAttribute("date", program.getSubassdate());
+					//event.addAttribute("type","主观评价");
+					//event.addAttribute("date", program.getSubassdate());
+					Element type=event.addElement("type");
+					type.addText("主观评价");
+					Element date=event.addElement("date");
+					date.addText(program.getSubassdate());
 				}
 
 			}

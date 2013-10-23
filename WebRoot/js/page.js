@@ -2,7 +2,7 @@ function goPage(pageNum) {
           
               var f=   document.forms[0];
               
-              if(pageNum>document.getElementById("totalPages").value)
+              if(parseInt(pageNum)>parseInt(document.getElementById("paginator.totalPages").value))
               {
             	  alert("跳转页超出总页数！");
             	  return false;

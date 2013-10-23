@@ -7,6 +7,9 @@ public class User {
 	private String role;
 	private int edit;
 	private int addimpro;
+	private int notice;
+	private int activity;
+	private int showtype;
 	public String getUsername() {
 		return username;
 	}
@@ -36,5 +39,23 @@ public class User {
 	}
 	public void setAddimpro(int addimpro) {
 		this.addimpro = addimpro;
+	}
+	public int getNotice() {
+		return notice;
+	}
+	public void setNotice(int notice) {
+		this.notice = notice;
+	}
+	public int getActivity() {
+		return activity;
+	}
+	public void setActivity(int activity) {
+		this.activity = activity;
+	}
+	public int getShowtype() {
+		return showtype;
+	}
+	public void setShowtype(int showtype) {
+		this.showtype = showtype;
 	}
 }

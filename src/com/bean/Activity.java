@@ -6,7 +6,8 @@ public class Activity {
 
 	private int activityid;
 	private String title;
-	private List<String> images;
+	private String imgpath;
+	private int isshow;
 	private String createdate;
 
 	public int getActivityid() {
@@ -21,16 +22,22 @@ public class Activity {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public List<String> getImages() {
-		return images;
+	public String getImgpath() {
+		return imgpath;
 	}
-	public void setImages(List<String> images) {
-		this.images = images;
+	public void setImgpath(String imgpath) {
+		this.imgpath = imgpath;
 	}
 	public String getCreatedate() {
 		return createdate;
 	}
 	public void setCreatedate(String createdate) {
 		this.createdate = createdate;
+	}
+	public int getIsshow() {
+		return isshow;
+	}
+	public void setIsshow(int isshow) {
+		this.isshow = isshow;
 	}
 }

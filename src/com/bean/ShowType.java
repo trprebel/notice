@@ -5,6 +5,8 @@ public class ShowType{
 
 	private int type;
 	private String url;
+	private int version;
+	private int isshow;
 	public int getType() {
 		return type;
 	}
@@ -16,5 +18,17 @@ public class ShowType{
 	}
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	public int getVersion() {
+		return version;
+	}
+	public void setVersion(int version) {
+		this.version = version;
+	}
+	public int getIsshow() {
+		return isshow;
+	}
+	public void setIsshow(int isshow) {
+		this.isshow = isshow;
 	}
 }

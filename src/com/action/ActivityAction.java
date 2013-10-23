@@ -20,6 +20,7 @@ import com.bean.Activity;
 import com.bean.Notice;
 import com.dao.impl.ActivityDao;
 import com.opensymphony.xwork2.ActionSupport;
+import com.util.RecordLog;
 
 import filter.StringUtil;
 
@@ -31,14 +32,22 @@ public class ActivityAction extends ActionSupport{
 
 	private static final long serialVersionUID = 1L;
 	
+	private String activityid;
 	private String activitytitle;
 	private File picture;   //保存上传的文件
 	private String pictureContentType;	 //保存上传的文件类型
 	private String pictureFileName;   //保存上传的文件名
 	private ActivityDao activityDao=new ActivityDao();
 	private List<String> imagepath;
-	
+	private String addresult;
+	public String messages;
 
+	public String getActivityid() {
+		return activityid;
+	}
+	public void setActivityid(String activityid) {
+		this.activityid = activityid;
+	}
 	public String getActivitytitle() {
 		return activitytitle;
 	}
@@ -69,13 +78,19 @@ public class ActivityAction extends ActionSupport{
 	public void setImagepath(List<String> imagepath) {
 		this.imagepath = imagepath;
 	}
+	public String getAddresult() {
+		return addresult;
+	}
+	public void setAddresult(String addresult) {
+		this.addresult = addresult;
+	}
 	public void activity() {
 		try {
 			Activity activity=activityDao.findShowActivity();
 			//System.out.println(activity.getTitle());
 			List<String> paths=activityDao.findActivityImgById(activity.getActivityid());
-			activity.setImages(paths);
-			
+			//activity.setImages(paths);
+			String httpimagePath=StringUtil.getSpPropeurl("httpimagePath");
 			Document document = DocumentHelper.createDocument();
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("utf-8");
@@ -93,7 +108,7 @@ public class ActivityAction extends ActionSupport{
 			Element pathlist=record.addElement("pathlist");
 			for (String path : paths) {
 				Element e_path=pathlist.addElement("path");
-				e_path.addText(path);
+				e_path.addText(httpimagePath+path);
 			}
 			
 			
@@ -131,7 +146,33 @@ public class ActivityAction extends ActionSupport{
 			activityDao.setAllNotShow();
 			//System.out.println(imagepath.get(0));
 			//System.out.println(imagepath.get(1));
+			activityDao.createActivity(activitytitle);
+			RecordLog.recordlog("创建活动"+activitytitle);
+			int id=activityDao.findLastActivity(activitytitle);
+			for (String path : imagepath) {
+				Activity activity=new Activity();
+				activity.setActivityid(id);
+				activity.setImgpath(path);
+				activityDao.addimage(activity);
+				RecordLog.recordlog("为活动"+activitytitle+"添加活动图片"+path);
+			}
 			
+			messages="发布成功！";
+			return "request";
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return "error";
+		}
+	}
+	public String requestlist()
+	{
+		HttpServletRequest request=ServletActionContext.getRequest();
+		try {
+			//System.out.println("requestlist");
+			List<Activity> activities=activityDao.findRecentActivity();
+			request.setAttribute("activities", activities);
+			//System.out.println(activities.get(0).getTitle());
 			return "activitylist";
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -139,21 +180,6 @@ public class ActivityAction extends ActionSupport{
 			return "error";
 		}
 	}
-//	public String requestlist()
-//	{
-//		HttpServletRequest request=ServletActionContext.getRequest();
-//		try {
-//			//System.out.println("requestlist");
-//			List<Notice> notices=noticeDao.findRecentNotice();
-//			//System.out.println(notices.get(0).getContent());
-//			request.setAttribute("notices", notices);
-//			return "noticelist";
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//			return "error";
-//		}
-//	}
 	public void picture()
 	{
 		try {
@@ -213,6 +239,22 @@ public class ActivityAction extends ActionSupport{
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+	}
+	public String addshow()
+	{
+		try {
+			//System.out.println(noticeid);
+			activityDao.setAllNotShow();
+			activityDao.setShowById(Integer.parseInt(activityid));
+			RecordLog.recordlog("将ID为"+activityid+"的活动设为显示活动！");
+			
+			addresult="设置成功！";
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			addresult="设置失败！";
+		}
+		return "addresult";
 	}
 
 }

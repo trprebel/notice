@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <jsp:directive.page import="com.bean.User"/>
-<jsp:directive.page import="com.bean.Navigation"/>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -84,7 +83,7 @@ function createpro()
                     <td width="16%" height="25"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
                     <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                          <td height="20" style="cursor:hand"    onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'" onclick="window.open('createactivity.jsp','operatorframe')"><span class="STYLE3">发布活动</span></td>
+                          <td height="20" style="cursor:hand"    onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'" onclick="window.open('activity/createactivity.jsp','operatorframe')"><span class="STYLE3">发布活动</span></td>
                         </tr>
                     </table></td>
                   </tr>

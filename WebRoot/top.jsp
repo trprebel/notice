@@ -29,7 +29,50 @@ body {
 }
 -->
 </style></head>
-
+<script type="text/javascript">
+function releasenotice()
+{
+	if("${user.notice}"==1)
+	{
+		window.open('left_notice.jsp','leftframe');
+		window.open('notice/createnotice.jsp','operatorframe');
+		
+	}
+	else
+	{
+		alert("您无权访问该页面!");
+		return;
+	}
+}
+function releaseactivity()
+{
+	if("${user.activity}"==1)
+	{
+		window.open('left_activity.jsp','leftframe');
+		window.open('activity/createactivity.jsp','operatorframe');
+		
+	}
+	else
+	{
+		alert("您无权访问该页面!");
+		return;
+	}
+}
+function systemconfig()
+{
+	if("${user.showtype}"==1)
+	{
+		window.open('left_sysconf.jsp','leftframe');
+		window.open('requestshowSYSTEM.action','operatorframe');
+		
+	}
+	else
+	{
+		alert("您无权访问该页面!");
+		return;
+	}
+}
+</script>
 <body>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -96,19 +139,19 @@ body {
             <td width="3"><img src="images/main_34.gif" width="3" height="28"></td>
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'" onclick="window.open('left_notice.jsp','leftframe');window.open('notice/createnotice.jsp','operatorframe')"><div align="center" class="STYLE3">公告发布</div></td>
+                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'" onclick="releasenotice()"><div align="center" class="STYLE3">公告发布</div></td>
               </tr>
             </table></td>
             <td width="3"><img src="images/main_34.gif" width="3" height="28"></td>
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'" onclick="window.open('left_activity.jsp','leftframe');window.open('activity/createactivity.jsp','operatorframe')"><div align="center" class="STYLE3">活动展示</div></td>
+                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'" onclick="releaseactivity()"><div align="center" class="STYLE3">活动展示</div></td>
               </tr>
             </table></td>
             <td width="3"><img src="images/main_34.gif" width="3" height="28"></td>
             <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">数据管理</div></td>
+                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'" onclick="systemconfig()"><div align="center" class="STYLE3">系统配置</div></td>
               </tr>
             </table></td>
             <td width="3"><img src="images/main_34.gif" width="3" height="28"></td>

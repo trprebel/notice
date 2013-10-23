@@ -30,6 +30,7 @@ public class NoticeAction extends ActionSupport{
 	private String noticetitle;
 	private String noticecontent;
 	private String addresult;
+	public String messages;
 	
 	public String getNoticeid() {
 		return noticeid;
@@ -125,7 +126,9 @@ public class NoticeAction extends ActionSupport{
 			notice.setContent(noticecontent);
 			notice.setIsshow(1);
 			noticeDao.createNotice(notice);
-			return "noticelist";
+			RecordLog.recordlog("发布公告"+noticetitle);
+			messages="发布成功！";
+			return "request";
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -153,7 +156,7 @@ public class NoticeAction extends ActionSupport{
 			//System.out.println(noticeid);
 			noticeDao.setAllNotShow();
 			noticeDao.setShowById(Integer.parseInt(noticeid));
-			//RecordLog.recordlog("将proid为"+proid+"的项目设为"+month+"月重点项目！");
+			RecordLog.recordlog("将noticeid为"+noticeid+"的公告设为显示的公告！");
 			addresult="设置成功！";
 		} catch (Exception e) {
 			// TODO: handle exception
