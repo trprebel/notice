@@ -46,6 +46,10 @@
 		</action>
 		<action name="*SYSTEM" class="com.action.SysconfAction" method="{1}">
 			<result name="show">/sysconf/confshow.jsp</result>
+			<result name="rolelist">/sysconf/rolelist.jsp</result>
+			<result name="result" type="json">
+				<param name="root">result</param>
+			</result>
 			<result name="error">/error.jsp</result>
 		</action>
 	</package>

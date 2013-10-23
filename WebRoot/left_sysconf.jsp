@@ -84,7 +84,7 @@ function createpro()
                     <td width="16%" height="25"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
                     <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                          <td height="20" style="cursor:hand"    onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'" onclick="window.open('requestlistPROGRAM.action','operatorframe')"><span class="STYLE3">设置展示项</span></td>
+                          <td height="20" style="cursor:hand"    onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'" onclick="window.open('requestshowSYSTEM.action','operatorframe')"><span class="STYLE3">设置展示项</span></td>
                         </tr>
                     </table></td>
                   </tr>
@@ -92,7 +92,7 @@ function createpro()
                     <td height="23"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
                     <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'" onclick="window.open('requestlistPROGRAM.action','operatorframe')"><span class="STYLE3">角色管理</span></td>
+                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'" onclick="window.open('requestroleSYSTEM.action','operatorframe')"><span class="STYLE3">角色管理</span></td>
                         </tr>
                     </table></td>
                   </tr>

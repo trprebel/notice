@@ -2,11 +2,21 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="tvshow">
+<sqlMap namespace="sysconf">
 
-	<typeAlias alias="ShowType" type="com.bean.ShowType" />
+	
 	<update id="setAllTVShowNot" >
 		update showtype set isshow=0
+	</update>
+	<update id="setTVShowByType" parameterClass="int">
+		update showtype set isshow=1 where type=$type$
+	</update>
+	<select id="findAllRole" resultClass="com.bean.Role">
+		select * from role
+	</select>
+	<update id="modifyRole" parameterClass="com.bean.Role">
+		update role set edit=$edit$,addimpro=$addimpro$,notice=$notice$,activity=$activity$,showtype=$showtype$
+		where roleid=$roleid$
 	</update>
 	
 </sqlMap>

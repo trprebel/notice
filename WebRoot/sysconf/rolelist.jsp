@@ -98,6 +98,32 @@ body {
 				}
 	}
 
+	function modifyrole(i)
+	{
+		//alert(document.getElementById("roleid"+i).value);
+		var postdata = {
+      			roleid :document.getElementById("roleid"+i).value,
+      			edit :document.getElementById("edit"+i).checked,
+      			addimpro :document.getElementById("addimpro"+i).checked,
+      			notice :document.getElementById("notice"+i).checked,
+      			activity :document.getElementById("activity"+i).checked,
+      			showtype :document.getElementById("showtype"+i).checked
+        	};
+		$.ajax({
+     		type:'post',
+     		data:postdata,
+     		url:'modifyroleSYSTEM.action',
+     		dataType:'json',
+     		success:function(data){
+     			//var obj = $.parseJSON(data);        
+				alert(data);
+     		},
+    		error:function(){
+       			alert("添加失败！");
+    		}
+
+    	});
+	}
 	function addshow()
 	{
 		var isshow=document.getElementsByName("isshow");
@@ -133,8 +159,8 @@ body {
 </head>
 
 <body>
-	<form action="requestlistNOTICE.action" id="noticelistform"
-		name="noticelistform" method="post">
+	<form action="requestroleSYSTEM.action" id="roleform"
+		name="roleform" method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td height="30" background="images/images/tab_05.gif"><table
@@ -153,7 +179,7 @@ body {
 															<img src="images/images/tb.gif" width="16" height="16" />
 														</div>
 													</td>
-													<td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[公告管理]-[公告列表]</td>
+													<td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[系统管理]-[角色管理]</td>
 												</tr>
 											</table>
 										</td>
@@ -162,21 +188,7 @@ body {
 												<tr>
 													<td width="100"><table width="90%" border="0"
 															cellpadding="0" cellspacing="0">
-															<tr>
-																<td class="STYLE1"><div align="center">
-																		<c:if test="${user.addimpro==1 }">
-																			<img src="images/images/22.gif" width="14"
-																				height="14" onclick="addshow()" />
-																		</c:if>
-																	</div>
-																</td>
-																<td class="STYLE1"><div align="center">
-																		<c:if test="${user.addimpro==1 }">
-																			<a href="javascript:addshow()">设置显示公告</a>
-																		</c:if>
-																	</div>
-																</td>
-															</tr>
+															
 														</table>
 													</td>
 
@@ -216,61 +228,100 @@ body {
 									cellspacing="1" bgcolor="b5d6e6" onmouseover="changeto()"
 									onmouseout="changeback()">
 									<tr>
-										<td width="6%" height="22" background="images/images/bg.gif"
+										<td width="30%" height="22" background="images/images/bg.gif"
 
 											bgcolor="#FFFFFF"><div align="center">
-											<span class="STYLE1">显示项</span></div>
+											<span class="STYLE1">角色名</span></div>
 										</td>
 										<td width="10%" height="22" background="images/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
-												<span class="STYLE1">公告标题</span>
+												<span class="STYLE1">编辑项目权限</span>
 											</div>
 										</td>
-										<td width="*" height="22" background="images/images/bg.gif"
+										<td width="10" height="22" background="images/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
-												<span class="STYLE1">公告内容</span>
+												<span class="STYLE1">添加重点项目权限</span>
 											</div>
 										</td>
-										<td width="15%" height="22" background="images/images/bg.gif"
+										<td width="10%" height="22" background="images/images/bg.gif"
 
 											bgcolor="#FFFFFF"><div align="center">
-												<span class="STYLE1">创建时间</span>
+												<span class="STYLE1">管理公告权限</span>
 											</div>
 										</td>
-										
+										<td width="10%" height="22" background="images/images/bg.gif"
+
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">管理活动权限</span>
+											</div>
+										</td>
+										<td width="10%" height="22" background="images/images/bg.gif"
+
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">设置显示类型权限</span>
+											</div>
+										</td>
+										<td width="20%" height="22" background="images/images/bg.gif"
+
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">操作</span>
+											</div>
+										</td>
 									</tr>
-									<c:forEach var="notice" items="${notices}">
+									<c:forEach var="role" items="${roles}" varStatus="i">
 										<tr>
+											<td height="20" bgcolor="#FFFFFF"><div align="center"
+													class="STYLE1">
+													<div align="center">${role.role}</div>
+												</div></td>
 											<td height="20" bgcolor="#FFFFFF"><div align="center">
-													<input type="radio" name="isshow" id="isshow"
-														value="${notice.noticeid }"
-														<c:if test="${notice.isshow==1 }">
+													<input type="hidden" name="roleid" id="roleid${i.index}" value="${role.roleid }">
+													<input type="checkbox" name="edit" id="edit${i.index}"
+														
+													<c:if test="${role.edit==1 }">
+														checked
+													</c:if> />
+												</div></td>
+											<td height="20" bgcolor="#FFFFFF"><div align="center">
+													<input type="checkbox" name="addimpro" id="addimpro${i.index}"
+														
+													<c:if test="${role.addimpro==1 }">
+														checked
+													</c:if> />
+												</div></td>
+											<td height="20" bgcolor="#FFFFFF"><div align="center">
+													<input type="checkbox" name="notice" id="notice${i.index}"
+														
+													<c:if test="${role.notice==1 }">
+														checked
+													</c:if> />
+												</div></td>
+											<td height="20" bgcolor="#FFFFFF"><div align="center">
+													<input type="checkbox" name="activity" id="activity${i.index}"
+														
+													<c:if test="${role.activity==1 }">
+														checked
+													</c:if> />
+												</div></td>
+												<td height="20" bgcolor="#FFFFFF"><div align="center">
+													<input type="checkbox" name="showtype" id="showtype${i.index}"
+														
+													<c:if test="${role.showtype==1 }">
 														checked
 													</c:if> />
 												</div></td>
 											<td height="20" bgcolor="#FFFFFF"><div align="center"
 													class="STYLE1">
-													<div align="center">${notice.title}</div>
+													<div align="center"><a href="javascript:modifyrole('${i.index }')">修改</a></div>
 												</div></td>
-											<td height="20" bgcolor="#FFFFFF"><div align="center">
-													<span class="STYLE1">${notice.content }</span>
-												</div></td>
-											<td height="20" bgcolor="#FFFFFF"><div align="center">
-													<span class="STYLE1">${notice.createdate }</span>
-												</div></td>
-								
 
 										</tr>
 									</c:forEach>
 
 								</table>
 							</td>
-
-<<<<<<< HEAD
 							<td width="8" background="images/images/tab_15.gif">&nbsp;
-=======
-							<td width="8" background="notice/images/tab_15.gif">&nbsp;
->>>>>>> 293799e915bdb148d6d7b1c4ff718abb8c069ffc
+
 							</td>
 						</tr>
 					</table></td>
