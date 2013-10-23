@@ -216,7 +216,11 @@ body {
 									cellspacing="1" bgcolor="b5d6e6" onmouseover="changeto()"
 									onmouseout="changeback()">
 									<tr>
+<<<<<<< HEAD
 										<td width="6%" height="22" background="images/images/bg.gif"
+=======
+										<td width="6%" height="22" background="notice/images/bg.gif"
+>>>>>>> 293799e915bdb148d6d7b1c4ff718abb8c069ffc
 											bgcolor="#FFFFFF"><div align="center">
 											<span class="STYLE1">显示项</span></div>
 										</td>
@@ -230,7 +234,11 @@ body {
 												<span class="STYLE1">公告内容</span>
 											</div>
 										</td>
+<<<<<<< HEAD
 										<td width="15%" height="22" background="images/images/bg.gif"
+=======
+										<td width="15%" height="22" background="notice/images/bg.gif"
+>>>>>>> 293799e915bdb148d6d7b1c4ff718abb8c069ffc
 											bgcolor="#FFFFFF"><div align="center">
 												<span class="STYLE1">创建时间</span>
 											</div>
@@ -264,7 +272,11 @@ body {
 								</table>
 							</td>
 
+<<<<<<< HEAD
 							<td width="8" background="images/images/tab_15.gif">&nbsp;
+=======
+							<td width="8" background="notice/images/tab_15.gif">&nbsp;
+>>>>>>> 293799e915bdb148d6d7b1c4ff718abb8c069ffc
 							</td>
 						</tr>
 					</table></td>

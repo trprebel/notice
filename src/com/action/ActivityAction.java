@@ -90,7 +90,11 @@ public class ActivityAction extends ActionSupport{
 			//System.out.println(activity.getTitle());
 			List<String> paths=activityDao.findActivityImgById(activity.getActivityid());
 			//activity.setImages(paths);
+<<<<<<< HEAD
 			String httpimagePath=StringUtil.getSpPropeurl("httpimagePath");
+=======
+			
+>>>>>>> 293799e915bdb148d6d7b1c4ff718abb8c069ffc
 			Document document = DocumentHelper.createDocument();
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("utf-8");
