@@ -109,14 +109,7 @@ function createpro()
                         </tr>
                     </table></td>
                   </tr>
-                  <tr>
-                    <td height="23"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
-                    <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'" onclick="window.open('requestlog.action','operatorframe')"><span class="STYLE3">日志</span></td>
-                        </tr>
-                    </table></td>
-                  </tr>
+                  
                   </table></td>
               </tr>
               <tr>

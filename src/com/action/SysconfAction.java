@@ -11,6 +11,7 @@ import com.bean.ShowType;
 import com.bean.User;
 import com.dao.impl.SysConfDao;
 import com.dao.impl.TVshowDao;
+import com.dao.impl.UserDao;
 import com.opensymphony.xwork2.ActionSupport;
 import com.util.RecordLog;
 
@@ -30,6 +31,9 @@ public class SysconfAction extends ActionSupport{
 	private String notice;
 	private String activity;
 	private String result;
+	private String username;
+	private String password;
+	public String messages;
 	
 	public String getShowtype() {
 		return showtype;
@@ -66,6 +70,18 @@ public class SysconfAction extends ActionSupport{
 	}
 	public void setActivity(String activity) {
 		this.activity = activity;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getResult() {
 		return result;
@@ -111,15 +127,19 @@ public class SysconfAction extends ActionSupport{
 	{
 		HttpServletRequest request=ServletActionContext.getRequest();
 		try {
+			String page=(String)request.getParameter("page");
 			List<Role> roles=sysConfDao.findAllRole();
 			request.setAttribute("roles", roles);
-			return "rolelist";
+			return page;
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 			return "error";
 		}
 	}
+	/**修改用户角色
+	 * @return
+	 */
 	public String modifyrole()
 	{
 		try {
@@ -145,6 +165,26 @@ public class SysconfAction extends ActionSupport{
 		}
 		return "result";
 	}
-	
+	public String createuser()
+	{
+		HttpServletRequest request=ServletActionContext.getRequest();
+		try {
+			//System.out.println("createuser");
+			User user=new User();
+			user.setUsername(username);
+			user.setPassword(password);
+			user.setRoleid(Integer.parseInt(roleid));
+			UserDao userDao=new UserDao();
+			userDao.createUser(user);
+			List<Role> roles=sysConfDao.findAllRole();			
+			//System.out.println("user=="+user.getUsername());
+			request.setAttribute("roles", roles);
+			return "create";
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return "error";
+		}
+	}
 
 }

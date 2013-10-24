@@ -154,30 +154,7 @@ function systemconfig()
                 <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'" onclick="systemconfig()"><div align="center" class="STYLE3">系统配置</div></td>
               </tr>
             </table></td>
-            <td width="3"><img src="images/main_34.gif" width="3" height="28"></td>
-            <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
-              <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">统计报表</div></td>
-              </tr>
-            </table></td>
-            <td width="3"><img src="images/main_34.gif" width="3" height="28"></td>
-            <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
-              <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">业务管理</div></td>
-              </tr>
-            </table></td>
-            <td width="3"><img src="images/main_34.gif" width="3" height="28"></td>
-            <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
-              <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">系统配置</div></td>
-              </tr>
-            </table></td>
-            <td width="3"><img src="images/main_34.gif" width="3" height="28"></td>
-            <td width="63"><table width="58" border="0" align="center" cellpadding="0" cellspacing="0">
-              <tr>
-                <td height="20" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(images/bg.gif)';this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#a6d0e7'; "onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'"><div align="center" class="STYLE3">升级维护</div></td>
-              </tr>
-            </table></td>
+            
             <td>&nbsp;</td>
           </tr>
         </table></td>

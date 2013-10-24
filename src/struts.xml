@@ -22,7 +22,7 @@
 			<result name="impro">/program/improtantpro.jsp</result>
 		</action>
 		<action name="requestlog" class="com.action.LogAction" method="requestlog">
-			<result name="success">/program/log.jsp</result>
+			<result name="success">/sysconf/log.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="*NOTICE" class="com.action.NoticeAction" method="{1}">
@@ -50,6 +50,7 @@
 			<result name="result" type="json">
 				<param name="root">result</param>
 			</result>
+			<result name="create">/sysconf/createuser.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 	</package>

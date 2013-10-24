@@ -19,5 +19,6 @@
 		where roleid=$roleid$
 	</update>
 	
+	
 </sqlMap>
 

@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <jsp:directive.page import="com.bean.User" />
+<%@page import="com.util.Paginator;"%>
 <%@taglib prefix="c" uri="/jstl/c.tld"%>
 <%
 	String path = request.getContextPath();
@@ -7,6 +8,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 	User user = (User) session.getAttribute("user");
+	
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -23,8 +25,7 @@ body {
 }
 
 .STYLE1 {
-	font-size: 12px;
-	margin-right: 5px;
+	font-size: 12px
 }
 
 .STYLE3 {
@@ -35,13 +36,6 @@ body {
 .STYLE4 {
 	color: #03515d;
 	font-size: 12px;
-}
-
-.button_chuang {
-	border: 1px solid #e9eff2;
-	width: 180px;
-	height: 20px;
-	margin-left: 5px;
 }
 -->
 </style>
@@ -98,50 +92,20 @@ body {
 				}
 	}
 
-	function addshow()
-	{
-		var isshow=document.getElementsByName("isshow");
-		for(var i=0;i<isshow.length;i++){
-            if(isshow[i].checked){
-                //alert(important[i].value);
-                var postdata = {
-              			noticeid :isshow[i].value
-                	};
-              	
-            		$.ajax({
-                 		type:'post',
-                 		data:postdata,
-                 		url:'addshowNOTICE.action',
-                 		dataType:'json',
-                 		success:function(data){
-                 			//var obj = $.parseJSON(data);        
-            				alert(data);
-                 		},
-                		error:function(){
-                   			alert("添加失败！");
-                		}
-
-                	});
-                break;
-            }
-        }
-
-	}
-
 </script>
 
 </head>
 
 <body>
-	<form action="requestlistNOTICE.action" id="noticelistform"
-		name="noticelistform" method="post">
+	<form action="requestlog.action" id="loglistform"
+		name="loglistform" method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td height="30" background="images/images/tab_05.gif"><table
+				<td height="30" background="program/images/tab_05.gif"><table
 						width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="12" height="30"><img
-								src="images/images/tab_03.gif" width="12" height="30" />
+								src="program/images/tab_03.gif" width="12" height="30" />
 							</td>
 							<td><table width="100%" border="0" cellspacing="0"
 									cellpadding="0">
@@ -150,10 +114,10 @@ body {
 												border="0" cellspacing="0" cellpadding="0">
 												<tr>
 													<td width="5%"><div align="center">
-															<img src="images/images/tb.gif" width="16" height="16" />
+															<img src="program/images/tb.gif" width="16" height="16" />
 														</div>
 													</td>
-													<td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[公告管理]-[公告列表]</td>
+													<td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[系统配置]-[日志]</td>
 												</tr>
 											</table>
 										</td>
@@ -164,29 +128,23 @@ body {
 															cellpadding="0" cellspacing="0">
 															<tr>
 																<td class="STYLE1"><div align="center">
-																		<c:if test="${user.addimpro==1 }">
-																			<img src="images/images/22.gif" width="14"
-																				height="14" onclick="addshow()" />
-																		</c:if>
+																		<img src="program/images/22.gif" width="14"
+																			height="14" onclick="addimportant()"/>
 																	</div>
 																</td>
-																<td class="STYLE1"><div align="center">
-																		<c:if test="${user.addimpro==1 }">
-																			<a href="javascript:addshow()">设置显示公告</a>
-																		</c:if>
-																	</div>
+																<td class="STYLE1"><div align="center"><a href="javascript:addimportant()">添加重点项目</a></div>
 																</td>
 															</tr>
 														</table>
 													</td>
-
+													
 												</tr>
 											</table>
 										</td>
 									</tr>
 								</table>
 							</td>
-							<td width="16"><img src="images/images/tab_07.gif"
+							<td width="16"><img src="program/images/tab_07.gif"
 								width="16" height="30" />
 							</td>
 						</tr>
@@ -197,95 +155,131 @@ body {
 				<td><table width="100%" border="0" cellspacing="0"
 						cellpadding="0">
 						<tr>
-							<td width="8" background="images/images/tab_12.gif">&nbsp;</td>
-							<td><table width="100%" border="0" cellpadding="0"
-									cellspacing="1" bgcolor="b5d6e6" style="margin-bottom: 12px;">
-									
-									
-								</table></td>
-							<td width="8" background="images/images/tab_15.gif">&nbsp;</td>
-						</tr>
-					</table></td>
-			</tr>
-			<tr>
-				<td>
-					<table width="100%" border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td width="8" background="images/images/tab_12.gif">&nbsp;</td>
+							<td width="8" background="program/images/tab_12.gif">&nbsp;</td>
 							<td><table width="100%" border="0" cellpadding="0"
 									cellspacing="1" bgcolor="b5d6e6" onmouseover="changeto()"
 									onmouseout="changeback()">
 									<tr>
-										<td width="6%" height="22" background="images/images/bg.gif"
-
+										<td width="5%" height="22" background="program/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
-											<span class="STYLE1">显示项</span></div>
-										</td>
-										<td width="10%" height="22" background="images/images/bg.gif"
-											bgcolor="#FFFFFF"><div align="center">
-												<span class="STYLE1">公告标题</span>
+												<span class="STYLE1">日志ID</span>
 											</div>
 										</td>
-										<td width="*" height="22" background="images/images/bg.gif"
+										<td width="5%" height="22" background="program/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
-												<span class="STYLE1">公告内容</span>
+												<span class="STYLE1">用户</span>
 											</div>
 										</td>
-										<td width="15%" height="22" background="images/images/bg.gif"
-
+										<td width="75%" height="22" background="program/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
-												<span class="STYLE1">创建时间</span>
+												<span class="STYLE1">操作</span>
+											</div>
+										</td>
+										<td width="15%" height="22" background="program/images/bg.gif"
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">时间</span>
 											</div>
 										</td>
 										
 									</tr>
-									<c:forEach var="notice" items="${notices}">
+									<c:forEach var="log" items="${paginator.items}">
 										<tr>
-											<td height="20" bgcolor="#FFFFFF"><div align="center">
-													<input type="radio" name="isshow" id="isshow"
-														value="${notice.noticeid }"
-														<c:if test="${notice.isshow==1 }">
-														checked
-													</c:if> />
-												</div></td>
 											<td height="20" bgcolor="#FFFFFF"><div align="center"
 													class="STYLE1">
-													<div align="center">${notice.title}</div>
+													<div align="center">${log.logid}</div>
 												</div></td>
 											<td height="20" bgcolor="#FFFFFF"><div align="center">
-													<span class="STYLE1">${notice.content }</span>
+													<span class="STYLE1">${log.username }</span>
 												</div></td>
 											<td height="20" bgcolor="#FFFFFF"><div align="center">
-													<span class="STYLE1">${notice.createdate }</span>
+													<span class="STYLE1">${log.operate }</span>
+												</div></td>
+										
+											<td height="20" bgcolor="#FFFFFF"><div align="center">
+													<span class="STYLE1">${log.time}</span>
 												</div></td>
 								
 
 										</tr>
 									</c:forEach>
-
+									
 								</table>
 							</td>
-
-							<td width="8" background="images/images/tab_15.gif">&nbsp;
+							
+							<td width="8" background="program/images/tab_15.gif">&nbsp;
+							<input type="hidden" id="proid" name="proid"/>
 							</td>
 						</tr>
-					</table></td>
+					</table>
+				</td>
 			</tr>
 			<tr>
-				<td height="35" background="images/images/tab_19.gif"><table
+				<td height="35" background="program/images/tab_19.gif"><table
 						width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="12" height="35"><img
-								src="images/images/tab_18.gif" width="12" height="35" />
+								src="program/images/tab_18.gif" width="12" height="35" />
 							</td>
 							<td><table width="100%" border="0" cellspacing="0"
 									cellpadding="0">
 									<tr>
-										
+										<td class="STYLE4">&nbsp;&nbsp;共有
+											${paginator.totalRowsAmount} 条记录，当前第 ${paginator.currentPage
+											}/${paginator.totalPages } 页</td>
+										<td>
+
+											<table border="0" align="right" cellpadding="0"
+												cellspacing="0">
+												<tr>
+													<td width="40"><img src="program/images/first.gif"
+														width="37" height="15" onclick="javascript:goPage(1)" />
+													</td>
+													<td width="45">
+													
+													<img src="program/images/back.gif"
+														width="43" height="15"
+														<c:if test="${paginator.currentPage!=1 }">
+														onclick="javascript:goPage('${paginator.currentPage-1 }')" 
+														</c:if>
+														/>
+													
+													</td>
+													<td width="45"><input name='paginator.currentPage'
+														id='paginator.currentPage' type='hidden'
+														value='${paginator.currentPage }' />
+														<input name='paginator.totalPages'
+														id='paginator.totalPages' type='hidden'
+														value='${paginator.totalPages }' />
+														
+														<img
+														src="program/images/next.gif" width="43" height="15"
+														<c:if test="${paginator.currentPage<paginator.totalPages}">
+														onclick="javascript:goPage('${paginator.currentPage+1 }')" 
+														</c:if>
+														/>
+														
+													</td>
+													<td width="40"><img src="program/images/last.gif"
+														width="37" height="15"
+														onclick="javascript:goPage('${paginator.totalPages}')" />
+													</td>
+													<td width="100"><div align="center">
+															<span class="STYLE1">转到第 <input name="gopagenum"
+																id="gopagenum" type="text" size="4"
+																style="height:16px; width:20px; border:1px solid #999999;" />
+																页 </span>
+														</div>
+													</td>
+													<td width="40"><img src="program/images/go.gif"
+														width="37" height="15"
+														onclick="javascript:goPage(document.getElementById('gopagenum').value)" />
+													</td>
+												</tr>
+											</table></td>
 									</tr>
 								</table>
 							</td>
-							<td width="16"><img src="images/images/tab_20.gif"
+							<td width="16"><img src="program/images/tab_20.gif"
 								width="16" height="35" />
 							</td>
 						</tr>
@@ -295,12 +289,4 @@ body {
 		</table>
 	</form>
 </body>
-<SCRIPT type="text/javascript">
-  
- if('${messages}'!="")
- {
-   alert('${messages}');
-   
- }
-</SCRIPT>
 </html>

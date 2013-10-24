@@ -4,6 +4,7 @@ public class User {
 
 	private String username;
 	private String password;
+	private int roleid;
 	private String role;
 	private int edit;
 	private int addimpro;
@@ -27,6 +28,12 @@ public class User {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public int getRoleid() {
+		return roleid;
+	}
+	public void setRoleid(int roleid) {
+		this.roleid = roleid;
 	}
 	public int getEdit() {
 		return edit;

@@ -17,7 +17,7 @@ public class LogAction extends ActionSupport{
 
 	private static final long serialVersionUID = 1L;
 
-	public Paginator paginator=new Paginator(5);
+	public Paginator paginator=new Paginator(20);
 	private PageProgram program=new PageProgram();
 	public Paginator getPaginator() {
 		return paginator;

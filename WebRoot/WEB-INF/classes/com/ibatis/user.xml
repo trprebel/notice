@@ -8,5 +8,8 @@
 	<select id="findUserByName" resultClass="User" parameterClass="java.lang.String">
 		select * from user,role where username=#username# and user.roleid=role.roleid
     </select>
+    <insert id="createUser" parameterClass="User">
+		insert into user (username,password,roleid) values(#username#,#password#,$roleid$)
+	</insert>
 
 </sqlMap>
