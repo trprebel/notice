@@ -21,22 +21,10 @@ body {
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
+	font-size:12px;
 }
 
-.STYLE1 {
-	font-size: 12px;
-	margin-right: 10px;
-}
 
-.STYLE3 {
-	font-size: 12px;
-	font-weight: bold;
-}
-
-.STYLE4 {
-	color: #03515d;
-	font-size: 12px;
-}
 
 .button_chuang {
 	border: 1px solid #e9eff2;
@@ -169,7 +157,7 @@ body {
 							<td><table width="100%" border="0" cellspacing="0"
 									cellpadding="0">
 									<tr>
-										<td width="46%" valign="middle"><table width="100%"
+										<td width="46%" valign="middle"><div style="margin-top:7px;"><table  width="100%"
 												border="0" cellspacing="0" cellpadding="0">
 												<tr>
 													<td width="5%"><div align="center">
@@ -177,7 +165,7 @@ body {
 														</div></td>
 													<td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[活动管理]-[展示活动]</td>
 												</tr>
-											</table></td>
+											</table></div></td>
 										<td width="54%"><table border="0" align="right"
 												cellpadding="0" cellspacing="0">
 												<tr>
@@ -222,7 +210,7 @@ body {
 						cellpadding="0">
 						<tr>
 							<td width="8" background="images/images/tab_12.gif">&nbsp;</td>
-							<td><table width="100%" border="0" cellpadding="0"
+							<td><table width="100%" border="0" style="margin-top:15px;" cellpadding="0"
 									cellspacing="0" bgcolor="b5d6e6">
 									<tr>
 										<td width="40%" height="28" bgcolor="#FFFFFF"><div
@@ -252,9 +240,9 @@ body {
 									</tr>
 
 									<tr>
-										<td height="28" colspan="2" bgcolor="#FFFFFF" align="center"><input
+										<td height="50" colspan="2" bgcolor="#FFFFFF"><div style="margin-top:20px;" align="center"><input
 											type="button" onClick="javascript:submitfun()" value="发布">&nbsp;<input
-											type="reset" value="重置"></td>
+											type="reset" value="重置"></div></td>
 									</tr>
 								</table></td>
 							<td width="8" background="images/images/tab_15.gif">&nbsp;</td>

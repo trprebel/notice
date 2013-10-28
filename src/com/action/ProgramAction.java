@@ -490,7 +490,7 @@ public class ProgramAction extends ActionSupport{
 			Element pageno=record.addElement("page");
 			pageno.addText(page);
 			Element pagesize=record.addElement("pagesize");
-			pagesize.addText("8");
+			pagesize.addText(thisWeekPagePro.size()+"");
 			Element prolist=record.addElement("prolist");
 			//prolist.addText("prolist");
 

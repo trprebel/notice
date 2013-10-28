@@ -137,12 +137,11 @@ body {
 		name="activitylistform" method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td height="30" background="images/images/tab_05.gif"><table
+				<td height="30" background="program/images/tab_05.gif"><table
 						width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="12" height="30"><img
-								src="images/images/tab_03.gif" width="12" height="30" />
-							</td>
+								src="program/images/tab_03.gif" width="12" height="30" /></td>
 							<td><table width="100%" border="0" cellspacing="0"
 									cellpadding="0">
 									<tr>
@@ -150,13 +149,11 @@ body {
 												border="0" cellspacing="0" cellpadding="0">
 												<tr>
 													<td width="5%"><div align="center">
-															<img src="images/images/tb.gif" width="16" height="16" />
-														</div>
-													</td>
-													<td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[公告管理]-[公告列表]</td>
+															<img src="program/images/tb.gif" width="16" height="16" />
+														</div></td>
+													<td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[活动管理]-[活动列表]</td>
 												</tr>
-											</table>
-										</td>
+											</table></td>
 										<td width="54%"><table border="0" align="right"
 												cellpadding="0" cellspacing="0">
 												<tr>
@@ -166,7 +163,7 @@ body {
 																<td class="STYLE1"><div align="center">
 																		<c:if test="${user.addimpro==1 }">
 																			<img src="images/images/22.gif" width="14"
-																				height="14" onclick="addshow()" />
+																				height="14" onClick="addshow()" />
 																		</c:if>
 																	</div>
 																</td>
@@ -184,26 +181,10 @@ body {
 											</table>
 										</td>
 									</tr>
-								</table>
-							</td>
-							<td width="16"><img src="images/images/tab_07.gif"
-								width="16" height="30" />
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td><table width="100%" border="0" cellspacing="0"
-						cellpadding="0">
-						<tr>
-							<td width="8" background="images/images/tab_12.gif">&nbsp;</td>
-							<td><table width="100%" border="0" cellpadding="0"
-									cellspacing="1" bgcolor="b5d6e6" style="margin-bottom: 12px;">
-									
-									
+
 								</table></td>
-							<td width="8" background="images/images/tab_15.gif">&nbsp;</td>
+							<td width="16"><img src="program/images/tab_07.gif"
+								width="16" height="30" /></td>
 						</tr>
 					</table></td>
 			</tr>
@@ -217,20 +198,19 @@ body {
 									onmouseout="changeback()">
 									<tr>
 										<td width="10%" height="22" background="images/images/bg.gif"
-											bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">显示项</span></div>
-										</td>
+											bgcolor="#FFFFFF"><div align="center">
+												<span class="STYLE1">显示项</span>
+											</div></td>
 										<td width="45%" height="22" background="images/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
 												<span class="STYLE1">活动标题</span>
-											</div>
-										</td>
-										
+											</div></td>
+
 										<td width="45%" height="22" background="images/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
 												<span class="STYLE1">创建时间</span>
-											</div>
-										</td>
-										
+											</div></td>
+
 									</tr>
 									<c:forEach var="activity" items="${activities}">
 										<tr>
@@ -240,48 +220,53 @@ body {
 														<c:if test="${activity.isshow==1 }">
 														checked
 													</c:if> />
-												</div></td>
+												</div>
+											</td>
 											<td height="20" bgcolor="#FFFFFF"><div align="center"
 													class="STYLE1">
 													<div align="center">${activity.title}</div>
-												</div></td>
-											
+												</div>
+											</td>
+
 											<td height="20" bgcolor="#FFFFFF"><div align="center">
 													<span class="STYLE1">${activity.createdate }</span>
-												</div></td>
-								
+												</div>
+											</td>
+
 
 										</tr>
 									</c:forEach>
 
 								</table>
-							</td>
-
-							<td width="8" background="images/images/tab_15.gif">&nbsp;
-							</td>
-						</tr>
-					</table></td>
-			</tr>
-			<tr>
-				<td height="35" background="images/images/tab_19.gif"><table
-						width="100%" border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td width="12" height="35"><img
-								src="images/images/tab_18.gif" width="12" height="35" />
-							</td>
-							<td><table width="100%" border="0" cellspacing="0"
-									cellpadding="0">
-									<tr>
-										
-									</tr>
-								</table>
-							</td>
-							<td width="16"><img src="images/images/tab_20.gif"
-								width="16" height="35" />
-							</td>
+						</td>
+						<td width="8" background="images/images/tab_15.gif">&nbsp;</td>
 						</tr>
 					</table>
 				</td>
+			</tr>
+			<tr>
+				<td height="35" background="program/images/tab_19.gif"><table
+						width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="12" height="35"><img
+								src="program/images/tab_18.gif" width="12" height="35" /></td>
+							<td><table width="100%" border="0" cellspacing="0"
+									cellpadding="0">
+									<tr>
+										<td class="STYLE4">&nbsp;&nbsp;</td>
+										<td>
+
+											<table border="0" align="right" cellpadding="0"
+												cellspacing="0">
+
+											</table>
+										</td>
+									</tr>
+								</table></td>
+							<td width="16"><img src="program/images/tab_20.gif"
+								width="16" height="35" /></td>
+						</tr>
+					</table></td>
 			</tr>
 		</table>
 	</form>

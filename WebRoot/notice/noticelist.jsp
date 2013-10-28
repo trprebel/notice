@@ -137,12 +137,11 @@ body {
 		name="noticelistform" method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td height="30" background="images/images/tab_05.gif"><table
+				<td height="30" background="program/images/tab_05.gif"><table
 						width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="12" height="30"><img
-								src="images/images/tab_03.gif" width="12" height="30" />
-							</td>
+								src="program/images/tab_03.gif" width="12" height="30" /></td>
 							<td><table width="100%" border="0" cellspacing="0"
 									cellpadding="0">
 									<tr>
@@ -150,13 +149,11 @@ body {
 												border="0" cellspacing="0" cellpadding="0">
 												<tr>
 													<td width="5%"><div align="center">
-															<img src="images/images/tb.gif" width="16" height="16" />
-														</div>
-													</td>
+															<img src="program/images/tb.gif" width="16" height="16" />
+														</div></td>
 													<td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[公告管理]-[公告列表]</td>
 												</tr>
-											</table>
-										</td>
+											</table></td>
 										<td width="54%"><table border="0" align="right"
 												cellpadding="0" cellspacing="0">
 												<tr>
@@ -184,26 +181,10 @@ body {
 											</table>
 										</td>
 									</tr>
-								</table>
-							</td>
-							<td width="16"><img src="images/images/tab_07.gif"
-								width="16" height="30" />
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td><table width="100%" border="0" cellspacing="0"
-						cellpadding="0">
-						<tr>
-							<td width="8" background="images/images/tab_12.gif">&nbsp;</td>
-							<td><table width="100%" border="0" cellpadding="0"
-									cellspacing="1" bgcolor="b5d6e6" style="margin-bottom: 12px;">
-									
 									
 								</table></td>
-							<td width="8" background="images/images/tab_15.gif">&nbsp;</td>
+							<td width="16"><img src="program/images/tab_07.gif"
+								width="16" height="30" /></td>
 						</tr>
 					</table></td>
 			</tr>
@@ -272,20 +253,26 @@ body {
 					</table></td>
 			</tr>
 			<tr>
-				<td height="35" background="images/images/tab_19.gif"><table
+				<td height="35" background="program/images/tab_19.gif"><table
 						width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="12" height="35"><img
-								src="images/images/tab_18.gif" width="12" height="35" />
+								src="program/images/tab_18.gif" width="12" height="35" />
 							</td>
 							<td><table width="100%" border="0" cellspacing="0"
 									cellpadding="0">
 									<tr>
-										
+										<td class="STYLE4">&nbsp;&nbsp;</td>
+										<td>
+
+											<table border="0" align="right" cellpadding="0"
+												cellspacing="0">
+												
+											</table></td>
 									</tr>
 								</table>
 							</td>
-							<td width="16"><img src="images/images/tab_20.gif"
+							<td width="16"><img src="program/images/tab_20.gif"
 								width="16" height="35" />
 							</td>
 						</tr>

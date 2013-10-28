@@ -105,8 +105,7 @@ body {
 						width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="12" height="30"><img
-								src="program/images/tab_03.gif" width="12" height="30" />
-							</td>
+								src="program/images/tab_03.gif" width="12" height="30" /></td>
 							<td><table width="100%" border="0" cellspacing="0"
 									cellpadding="0">
 									<tr>
@@ -115,47 +114,22 @@ body {
 												<tr>
 													<td width="5%"><div align="center">
 															<img src="program/images/tb.gif" width="16" height="16" />
-														</div>
-													</td>
+														</div></td>
 													<td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[系统配置]-[日志]</td>
 												</tr>
-											</table>
-										</td>
-										<td width="54%"><table border="0" align="right"
-												cellpadding="0" cellspacing="0">
-												<tr>
-													<td width="100"><table width="90%" border="0"
-															cellpadding="0" cellspacing="0">
-															<tr>
-																<td class="STYLE1"><div align="center">
-																		<img src="program/images/22.gif" width="14"
-																			height="14" onclick="addimportant()"/>
-																	</div>
-																</td>
-																<td class="STYLE1"><div align="center"><a href="javascript:addimportant()">添加重点项目</a></div>
-																</td>
-															</tr>
-														</table>
-													</td>
-													
-												</tr>
-											</table>
-										</td>
+											</table></td>
+
 									</tr>
-								</table>
-							</td>
+								</table></td>
 							<td width="16"><img src="program/images/tab_07.gif"
-								width="16" height="30" />
-							</td>
+								width="16" height="30" /></td>
 						</tr>
-					</table>
-				</td>
+					</table></td>
 			</tr>
 			<tr>
-				<td><table width="100%" border="0" cellspacing="0"
-						cellpadding="0">
+				<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
-							<td width="8" background="program/images/tab_12.gif">&nbsp;</td>
+							<td width="8" background="images/images/tab_12.gif">&nbsp;</td>
 							<td><table width="100%" border="0" cellpadding="0"
 									cellspacing="1" bgcolor="b5d6e6" onmouseover="changeto()"
 									onmouseout="changeback()">
