@@ -589,19 +589,20 @@ public class ProgramAction extends ActionSupport{
 			//int i_version=programDao.findVersion();
 			//version.addText(i_version+"");
 			Element record=result.addElement("record");
-			Element importantPro=record.addElement("importantpro");
-			importantPro.addAttribute("proname", tracePro.getProname());
+			Element importantName=record.addElement("importantname");
+			importantName.addText(tracePro.getProname());
+			Element improtantState=record.addElement("importantState");
 			Date d_plandate=format.parse(tracePro.getPlandate());
 			if (d_plandate.getTime()>=currDate.getTime())
 			{
 				if(((d_plandate.getTime()-currDate.getTime())/(24*60*60*1000))<4)
 				{
-					importantPro.addAttribute("state", "风险");
+					improtantState.addText("风险");
 				}
-				else importantPro.addAttribute("state", "正常");
+				else improtantState.addText("正常");
 			}
 			else {
-				importantPro.addAttribute("state", "超期");
+				improtantState.addText("超期");
 			}
 
 			Element programlist=record.addElement("programlist");
