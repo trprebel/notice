@@ -18,11 +18,11 @@
 		select count(*) from program where state=0 and proname regexp #sproname# and chargeperson regexp #schargeperson#
 	</select>
 	<select id="findThisMonthEmphasisEve" parameterClass="map" resultClass="Program">
-		<![CDATA[select * from program where 
+		<![CDATA[select * from program where state=0 and (
 			(evaluatedate >= #monthstart# and evaluatedate < #monthend#) or
 			(systestdate >= #monthstart# and systestdate < #monthend#) or
 			(modelevaluatedate >= #monthstart# and modelevaluatedate < #monthend#) or
-			(subassdate >= #monthstart# and subassdate < #monthend#)
+			(subassdate >= #monthstart# and subassdate < #monthend#))
 		]]>
 	</select>
 	<select id="findThisTraceEve" parameterClass="int" resultClass="Program">
