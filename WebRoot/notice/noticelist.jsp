@@ -202,12 +202,12 @@ body {
 											bgcolor="#FFFFFF"><div align="center">
 											<span class="STYLE1">显示项</span></div>
 										</td>
-										<td width="10%" height="22" background="images/images/bg.gif"
+										<td width="*" height="22" background="images/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
 												<span class="STYLE1">公告标题</span>
 											</div>
 										</td>
-										<td width="*" height="22" background="images/images/bg.gif"
+										<td width="10%" height="22" background="images/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
 												<span class="STYLE1">公告内容</span>
 											</div>

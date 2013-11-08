@@ -54,7 +54,7 @@ public class ProgramAction extends ActionSupport{
 	private String page;
 	public String messages;
 	private String addresult;
-	public Paginator paginator=new Paginator(10);
+	public Paginator paginator=new Paginator(20);
 	private PageProgram pageProgram=new PageProgram();
 	private ProgramDao programDao=new ProgramDao();
 

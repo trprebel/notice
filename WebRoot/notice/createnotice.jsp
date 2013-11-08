@@ -40,7 +40,7 @@ body {
 
 .button_chuang {
 	border: 1px solid #e9eff2;
-	width: 180px;
+	width: 400px;
 	height: 20px;
 }
 -->
@@ -111,8 +111,8 @@ body {
 												<span class="STYLE1">公告标题： </span>
 											</div>
 										</td>
-										<td bgcolor="#FFFFFF"><input class="button_chuang"
-											type="text" name="noticetitle" id="noticetitle" />
+										<td bgcolor="#FFFFFF"><input class="button_chuang" maxlength="70"
+											type="text" name="noticetitle" id="noticetitle"/>（35个字以内）
 										</td>
 									</tr>
 									<tr>
@@ -122,7 +122,7 @@ body {
 										</td>
 										<td bgcolor="#FFFFFF"><textarea
 												style="border: 1px solid #e9eff2;" rows="15" cols="40"
-												name="noticecontent" id="noticecontent"></textarea>
+												name="noticecontent" id="noticecontent" readonly>预留！</textarea>
 										</td>
 									</tr>
 
