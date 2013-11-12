@@ -113,6 +113,7 @@ public class SysconfAction extends ActionSupport{
 			sysConfDao.setTVShowByType(Integer.parseInt(showtype));
 			RecordLog.recordlog("设置显示类型为"+showtype);
 			request.setAttribute("type", showtype);
+			messages="设置成功！";
 			return "show";
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -179,6 +180,7 @@ public class SysconfAction extends ActionSupport{
 			List<Role> roles=sysConfDao.findAllRole();			
 			//System.out.println("user=="+user.getUsername());
 			request.setAttribute("roles", roles);
+			messages="创建成功！";
 			return "create";
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -56,49 +56,9 @@ body {
 	-->
 
 </head>
-<script language="javascript" type="text/javascript"
-	src="<%=basePath%>My97DatePicker/WdatePicker.js"></script>
+
 <script type="text/javascript" src="js/jquery-1.6.js"></script>
-<script type="text/javascript">
-	function submitfun() {
-		var proname = document.getElementById("proname").value;
-		var tvtype = document.getElementById("tvtype").value;
-		var chargeperson = document.getElementById("chargeperson").value;
-		var plandate = document.getElementById("plandate").value;
-		var evaluatedate = document.getElementById("evaluatedate").value;
-		var systestdate = document.getElementById("systestdate").value;
-		var modelevaluatedate = document.getElementById("modelevaluatedate").value;
-		var subassdate = document.getElementById("subassdate").value;
-		if (proname == "" || proname == null) {
-			alert("项目名称不能为空！");
-			return;
-		} else if (tvtype == "" || tvtype == null) {
-			alert("电视类型不能为空！");
-			return;
-		} else if (chargeperson == "" || chargeperson == null) {
-			alert("责任人不能为空！");
-			return;
-		} else if (plandate == "" || plandate == null) {
-			alert("计划完成时间不能为空！");
-			return;
-		}
-		if (evaluatedate == "" || evaluatedate == null) {
-			alert("评审会议时间不能为空！");
-			return;
-		} else if (systestdate == "" || systestdate == null) {
-			alert("系统测试时间不能为空！");
-			return;
-		} else if (modelevaluatedate == "" || modelevaluatedate == null) {
-			alert("样评时间不能为空！");
-			return;
-		} else if (subassdate == "" || subassdate == null) {
-			alert("主观评价时间不能为空！");
-			return;
-		}
-		var f1 = document.getElementById("cproform");
-		f1.submit();
-	}
-</script>
+
 <body>
 	<form action="confshowSYSTEM.action" name="confshowform"
 		id="confshowform" method="post">
