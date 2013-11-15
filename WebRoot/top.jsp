@@ -85,6 +85,7 @@ function systemconfig()
             <td>&nbsp;</td>
             <td width="21"><img src="images/main_07.gif" width="21" height="24"></td>
           </tr>
+          
         </table></td>
       </tr>
       <tr>
@@ -94,9 +95,12 @@ function systemconfig()
             <td width="759"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="77%" height="25" valign="bottom"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                  
+                  <tr>
+                    
+                    <td>&nbsp;</td>
+                  </tr>
                 </table></td>
-                <td width="220" valign="bottom"  nowrap="nowrap"><div align="right"><span class="STYLE1"><span class="STYLE2"></span></span></div></td>
+                <td width="220" valign="bottom"  nowrap="nowrap"><div align="right"><span class="STYLE1"><span class="STYLE2"></span><a href="login.jsp" target="_parent"><img src="images/main_20.gif" width="48" height="19"></a></span></div></td>
               </tr>
             </table></td>
             <td width="21"><img src="images/main_11.gif" width="21" height="38"></td>

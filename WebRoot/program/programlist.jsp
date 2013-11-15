@@ -263,7 +263,7 @@ body {
 										</td>
 										<td width="10%" height="22" background="program/images/bg.gif"
 											bgcolor="#FFFFFF"><div align="center">
-												<span class="STYLE1">电视类型</span>
+												<span class="STYLE1">项目类型</span>
 											</div>
 										</td>
 										<td width="5%" background="program/images/bg.gif"

@@ -75,7 +75,7 @@ body {
 	}
 	else if(tvtype==""||tvtype==null)
 	{
-		alert("电视类型不能为空！");
+		alert("项目类型不能为空！");
 		return;
 	}
 	else if(chargeperson==""||chargeperson==null)
@@ -171,7 +171,7 @@ body {
             <td bgcolor="#FFFFFF"><input class="button_chuang" type="text" name="proname" id="proname" /></td>
           </tr>
           <tr>
-            <td height="28" bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">电视类型：</span></div></td>
+            <td height="28" bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">项目类型：</span></div></td>
             <td bgcolor="#FFFFFF"><input class="button_chuang" type="text" name="tvtype" id="tvtype" /></td>
             </tr>
           <tr>

@@ -442,7 +442,8 @@ public class ProgramAction extends ActionSupport{
 			//Element version=result.addElement("version");
 			//int i_version=programDao.findVersion();
 			//version.addText(i_version+"");
-
+			//System.out.println(monday.getTime());
+			//System.out.println(sunday.getTime());
 
 			int i_total=0;
 			int i_activePro=0;
@@ -461,8 +462,15 @@ public class ProgramAction extends ActionSupport{
 				}else if((d_plandate.getTime()>=monday.getTime().getTime())&&(d_plandate.getTime()<=sunday.getTime().getTime()))//本周到期
 				{
 					i_arrivePro++;
+					//System.out.println(program.getProid());
+					//System.out.println();
 				}
 				i_total++;
+				if (program.getProid()==62) {
+					System.out.println("monday:"+monday.getTime().getTime());
+					System.out.println("sunday:"+sunday.getTime().getTime());
+					System.out.println(d_plandate.getTime());
+				}
 
 			}
 			i_activePro=i_total-i_exceedPro;
