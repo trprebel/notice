@@ -246,9 +246,19 @@ body {
 											</div>
 										</td>
 										<td height="20" bgcolor="#FFFFFF"><div align="center">
-												<span class="STYLE4"> <a
-													href="javascript:editpro('${improtantpro.proid}')"> <img
-														src="program/images/edt.gif" width="16" height="16" />编辑</a>
+												<span class="STYLE4"> <c:if test="${user.edit==1 }">
+
+															<a href="javascript:editpro('${improtantpro.proid}')"> <img
+																src="program/images/edt.gif" width="16" height="16" />编辑
+
+															</a>
+														</c:if>
+														<c:if test="${user.edit==0&&program.chargeperson==user.username}">
+														<a href="javascript:editpro('${improtantpro.proid}')"> <img
+																src="program/images/edt.gif" width="16" height="16" />编辑
+
+															</a>
+														</c:if>
 												</span>
 
 											</div>

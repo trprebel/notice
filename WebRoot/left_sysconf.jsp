@@ -41,14 +41,34 @@ body {
 <script type="text/javascript">
 var he=document.body.clientHeight-105;
 document.write("<div id=tt style=height:"+he+";overflow:hidden>");
-function createpro()
+function openrolelist()
 {
 	//alert("${user.edit}");
-	if("${user.edit}"==1)
+	if("${user.roleid}"==1)
 	{
-		window.open('program/createpro.jsp','operatorframe');
+		window.open('requestroleSYSTEM.action?page=rolelist','operatorframe');
 	}
-	else alert("您没有创建项目的权限！");
+	else alert("您没有访问该目录的权限！");
+
+}
+function createuser()
+{
+	//alert("${user.edit}");
+	if("${user.roleid}"==1)
+	{
+		window.open('requestroleSYSTEM.action?page=create','operatorframe');
+	}
+	else alert("您没有访问该目录的权限！");
+
+}
+function openlogs()
+{
+	//alert("${user.edit}");
+	if("${user.roleid}"==1)
+	{
+		window.open('requestlog.action','operatorframe');
+	}
+	else alert("您没有访问该目录的权限！");
 
 }
 </script>
@@ -92,7 +112,7 @@ function createpro()
                     <td height="23"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
                     <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'" onclick="window.open('requestroleSYSTEM.action?page=rolelist','operatorframe')"><span class="STYLE3">角色管理</span></td>
+                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'" onclick="openrolelist()"><span class="STYLE3">角色管理</span></td>
                         </tr>
                     </table></td>
                   </tr>
@@ -100,7 +120,7 @@ function createpro()
                     <td height="23"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
                     <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'" onclick="window.open('requestroleSYSTEM.action?page=create','operatorframe')"><span class="STYLE3">添加用户</span></td>
+                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'" onclick="createuser()"><span class="STYLE3">添加用户</span></td>
                         </tr>
                     </table></td>
                   </tr>
@@ -108,7 +128,7 @@ function createpro()
                     <td height="23"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
                     <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'" onclick="window.open('requestlog.action','operatorframe')"><span class="STYLE3">日志</span></td>
+                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'" onclick="openlogs()"><span class="STYLE3">日志</span></td>
                         </tr>
                     </table></td>
                   </tr>

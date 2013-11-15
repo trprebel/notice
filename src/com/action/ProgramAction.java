@@ -221,12 +221,12 @@ public class ProgramAction extends ActionSupport{
 			}
 			Date currDate=new Date();
 			List<Program> programs=programDao.findUnFinishPagePro(pageProgram);
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat formattime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for (Program program : programs) {
-				Date d_plandate=format.parse(program.getPlandate());
+				Date d_plandate=formattime.parse(program.getPlandate()+" 23:59:59");
 				if (d_plandate.getTime()>=currDate.getTime())
 				{
-					if(((d_plandate.getTime()-currDate.getTime())/(24*60*60*1000))<4)
+					if(((d_plandate.getTime()-currDate.getTime())/(24*60*60*1000))<3)
 					{
 						program.setState(2);
 					}
@@ -363,8 +363,8 @@ public class ProgramAction extends ActionSupport{
 			int month=Calendar.getInstance().get(Calendar.MONTH)+1;
 			Program program=programDao.findThisMonthTraceEve(month);
 			Date currDate=new Date();
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-			Date d_plandate=format.parse(program.getPlandate());
+			SimpleDateFormat formattime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			Date d_plandate=formattime.parse(program.getPlandate()+" 23:59:59");
 			if (d_plandate.getTime()>=currDate.getTime())
 			{
 				if(((d_plandate.getTime()-currDate.getTime())/(24*60*60*1000))<4)
@@ -408,6 +408,7 @@ public class ProgramAction extends ActionSupport{
 			Calendar sunday = Calendar.getInstance();//当前周周日日期
 			Date currDate=new Date();
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat formattime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			int wday=2-monday.get(Calendar.DAY_OF_WEEK);
 			if(wday>0) wday=-6;
 			monday.add(Calendar.DAY_OF_MONTH, wday);
@@ -453,24 +454,20 @@ public class ProgramAction extends ActionSupport{
 			int i_finishRate=0;
 			for (Program program : thisWeekAllPro) {
 				//System.out.println(program.getProid());
-				Date d_plandate=format.parse(program.getPlandate());
+				Date d_plandate=formattime.parse(program.getPlandate()+" 23:59:59");
 				//Date d_compdate=format.parse(program.getCompdate());
 				if(d_plandate.getTime()<currDate.getTime())//超期
 				{
 					i_exceedPro++;
 
-				}else if((d_plandate.getTime()>=monday.getTime().getTime())&&(d_plandate.getTime()<=sunday.getTime().getTime()))//本周到期
+				}
+				if((d_plandate.getTime()>=monday.getTime().getTime())&&(d_plandate.getTime()<=sunday.getTime().getTime()))//本周到期
 				{
 					i_arrivePro++;
 					//System.out.println(program.getProid());
 					//System.out.println();
 				}
 				i_total++;
-				if (program.getProid()==62) {
-					System.out.println("monday:"+monday.getTime().getTime());
-					System.out.println("sunday:"+sunday.getTime().getTime());
-					System.out.println(d_plandate.getTime());
-				}
 
 			}
 			i_activePro=i_total-i_exceedPro;
@@ -511,13 +508,13 @@ public class ProgramAction extends ActionSupport{
 				Element tvtype=e_program.addElement("tvtype");
 				tvtype.addText(program.getTvtype());
 				Element state=e_program.addElement("state");
-				Date d_plandate=format.parse(program.getPlandate());
+				Date d_plandate=formattime.parse(program.getPlandate()+" 23:59:59");
 				//Date d_compdate=format.parse(program.getCompdate());
 
 
 				if (d_plandate.getTime()>=currDate.getTime())
 				{
-					if(((d_plandate.getTime()-currDate.getTime())/(24*60*60*1000))<4)
+					if(((d_plandate.getTime()-currDate.getTime())/(24*60*60*1000))<3)
 					{
 						state.addText("风险");
 					}
@@ -573,7 +570,7 @@ public class ProgramAction extends ActionSupport{
 			String s_monthstart=dateCalendar.get(Calendar.YEAR)+"-"+(dateCalendar.get(Calendar.MONTH)+1)+"-01";
 			String s_monthend=dateCalendar.get(Calendar.YEAR)+"-"+(dateCalendar.get(Calendar.MONTH)+1)+"-32";
 			Date currDate=new Date();
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat formattime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			//programDao.findThisMonthEmphasisPro(sdate);
 			int currMonth=dateCalendar.get(Calendar.MONTH)+1;
 
@@ -600,10 +597,10 @@ public class ProgramAction extends ActionSupport{
 			Element importantName=record.addElement("importantname");
 			importantName.addText(tracePro.getProname());
 			Element improtantState=record.addElement("importantState");
-			Date d_plandate=format.parse(tracePro.getPlandate());
+			Date d_plandate=formattime.parse(tracePro.getPlandate()+" 23:59:59");
 			if (d_plandate.getTime()>=currDate.getTime())
 			{
-				if(((d_plandate.getTime()-currDate.getTime())/(24*60*60*1000))<4)
+				if(((d_plandate.getTime()-currDate.getTime())/(24*60*60*1000))<3)
 				{
 					improtantState.addText("风险");
 				}
