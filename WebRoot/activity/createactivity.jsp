@@ -31,6 +31,11 @@ body {
 	width: 180px;
 	height: 20px;
 }
+#closeimg {
+	position: relative;
+	top: -130px;
+	right: 14px;
+}
 -->
 </style>
 <meta http-equiv="pragma" content="no-cache">
@@ -60,8 +65,28 @@ body {
 		var f1 = document.getElementById("cactivityform");
 		f1.submit();
 	}
+	function resetfun()
+	{
+		var div=document.getElementById("preview");
+		var div1=document.getElementById("divStatus");
+    	div.innerHTML="";
+    	div1.innerHTML="0 图片已上传！";
+    	imageid=0;
+    	document.forms[0].reset();
+    	
+	}
+	function deleteimg(id)
+	{
+		var div=document.getElementById("preview");
+		//var imagepath=document.getElementById("imagepath"+id);
+		//var image=document.getElementById("image"+id);
+		var span=document.getElementById("span"+id);
+		//div.removeChild(imagepath);
+		//div.removeChild(image);
+		div.removeChild(span);
+	}
 	var swfu;
-
+	var imageid=0;
 	window.onload = function() {
 		//alert("script");
 		var settings = {
@@ -69,8 +94,8 @@ body {
 			upload_url: "pictureACTIVITY.action",
 			file_post_name : "picture",
 			//post_params: {"PHPSESSID" : "123"},
-			file_size_limit : "500 MB",
-			file_types : "*.*",
+			file_size_limit : "30 MB",
+			file_types : "*.jpg;*.jpeg;*.png;*.gif;*.bmp",
 			file_types_description : "All Files",
 			file_upload_limit : 0,
 			file_queue_limit : 0,
@@ -112,12 +137,40 @@ body {
     	            alert(serverData);
     				
     	        } else {
+    	        	var v_imageid=imageid;
     	        	var imagepath=document.createElement("input");
     	        	imagepath.name="imagepath";
     	        	imagepath.type="hidden";
+    	        	//imagepath.id="imagepath"+imageid;
     	        	imagepath.value=serverData;
-    	        	var div=document.getElementById("fsUploadProgress");
-    	        	div.appendChild(imagepath);
+    	        	
+    	        	var image=document.createElement("img");
+    	        	//image.id="image"+imageid;
+    	        	image.src=""+serverData;
+    	        	image.width="200";
+    	        	//image.onclick=function(){alert(v_imageid);};
+    	        	
+    	        	var close=document.createElement("img");
+    	        	close.id="closeimg";
+    	        	close.src="images/cancelbutton.gif";
+    	        	//close.position="relative";
+    	        	//close.top="-130px";
+    	        	//close.right="14px";
+    	        	close.onclick=function(){deleteimg(v_imageid);};
+    	        	//close.width="14";
+    	        	
+    	        	
+    	        	
+    	        	
+    	        	var div=document.getElementById("preview");
+    	        	var span=document.createElement("span");
+    	        	span.id="span"+imageid;
+    	        	div.appendChild(span);
+    	        	span.appendChild(imagepath);
+    	        	//div.innerHTML="<img id='image"+imageid+"' src='"+serverData+"' width='200' onclick='alert("+imageid+")'>";
+    	        	span.appendChild(image);
+    	        	span.appendChild(close);
+    	        	imageid++;
     	            var currentTime = new Date();
     				var progress = new FileProgress(file, this.customSettings.progressTarget);
     				progress.setComplete();
@@ -238,11 +291,20 @@ body {
 													style="margin-left: 2px; font-size: 8pt; height: 29px;" />
 											</div></td>
 									</tr>
-
+									<tr>
+										<td height="28" bgcolor="#FFFFFF"><div align="right">
+												<span class="STYLE1">图片预览：</span>
+											</div>
+										</td>
+										<td bgcolor="#FFFFFF">
+										<div id="preview">
+										</div>
+										</td>
+									</tr>
 									<tr>
 										<td height="50" colspan="2" bgcolor="#FFFFFF"><div style="margin-top:20px;" align="center"><input
-											type="button" onClick="javascript:submitfun()" value="发布">&nbsp;<input
-											type="reset" value="重置"></div></td>
+											type="button" onclick="javascript:submitfun()" value="发布">&nbsp;<input
+											type="button" onclick="resetfun()" value="重置"></div></td>
 									</tr>
 								</table></td>
 							<td width="8" background="images/images/tab_15.gif">&nbsp;</td>
