@@ -57,11 +57,17 @@ body {
 <script type="text/javascript">
 	function submitfun() {
 		var activitytitle = document.getElementById("activitytitle").value;
-		
+		var div=document.getElementById("preview");
 		if (activitytitle == "" || activitytitle == null) {
 			alert("活动标题不能为空！");
 			return;
 		}
+		if(div.innerHTML=="" || div.innerHTML==null)
+		{
+			alert("活动图片不能为空！");
+			return;
+		}
+		//else alert(div.innerHTML);
 		var f1 = document.getElementById("cactivityform");
 		f1.submit();
 	}
@@ -85,6 +91,12 @@ body {
 		//div.removeChild(image);
 		div.removeChild(span);
 	}
+	function butOnClick() { 
+ 		if(event.keyCode == 13) { 
+ 			submitfun();
+ 			return false;
+ 		}
+ 	}
 	var swfu;
 	var imageid=0;
 	window.onload = function() {
@@ -196,10 +208,11 @@ body {
     			this.debug(ex);
     		}
     	}
+     
 </script>
 <body>
 	<form action="createACTIVITY" name="cactivityform" id="cactivityform"
-		method="post" enctype="multipart/form-data">
+		method="post" enctype="multipart/form-data" onSubmit="return false;">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td height="30" background="images/images/tab_05.gif"><table
@@ -271,7 +284,7 @@ body {
 												<span class="STYLE1">活动标题： </span>
 											</div></td>
 										<td bgcolor="#FFFFFF"><input class="button_chuang"
-											type="text" name="activitytitle" id="activitytitle" /></td>
+											type="text" name="activitytitle" id="activitytitle" onkeydown="javascript:butOnClick();"/></td>
 									</tr>
 									<tr>
 										<td height="28" bgcolor="#FFFFFF"><div align="right">
@@ -297,13 +310,12 @@ body {
 											</div>
 										</td>
 										<td bgcolor="#FFFFFF">
-										<div id="preview">
-										</div>
+										<div id="preview"></div>
 										</td>
 									</tr>
 									<tr>
 										<td height="50" colspan="2" bgcolor="#FFFFFF"><div style="margin-top:20px;" align="center"><input
-											type="button" onclick="javascript:submitfun()" value="发布">&nbsp;<input
+											type="button" id="release" onclick="javascript:submitfun()" value="发布">&nbsp;<input
 											type="button" onclick="resetfun()" value="重置"></div></td>
 									</tr>
 								</table></td>

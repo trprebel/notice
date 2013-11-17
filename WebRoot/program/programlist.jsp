@@ -135,6 +135,12 @@ body {
         }
 
 	}
+	function butOnClick() { 
+		if (event.keyCode == 13) { 
+			goPage(document.getElementById('gopagenum').value);
+			return false; 
+		} 
+	} 
 
 </script>
 
@@ -438,7 +444,7 @@ body {
 													<td width="100"><div align="center">
 															<span class="STYLE1">转到第 <input name="gopagenum"
 																id="gopagenum" type="text" size="4"
-																style="height:16px; width:20px; border:1px solid #999999;" />
+																style="height:16px; width:20px; border:1px solid #999999;"  onkeydown="javascript:butOnClick();"/>
 																页 </span>
 														</div>
 													</td>

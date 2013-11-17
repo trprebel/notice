@@ -67,10 +67,16 @@ body {
 		var f1 = document.getElementById("cnoticeform");
 		f1.submit();
 	}
+	function butOnClick() { 
+ 		if(event.keyCode == 13) { 
+ 			submitfun();
+ 			return false;
+ 		}
+ 	}
 </script>
 <body>
 	<form action="createNOTICE" name="cnoticeform" id="cnoticeform"
-		method="post">
+		method="post" onSubmit="return false;">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td height="30" background="program/images/tab_05.gif"><table
@@ -112,7 +118,7 @@ body {
 											</div>
 										</td>
 										<td bgcolor="#FFFFFF"><input class="button_chuang" maxlength="70"
-											type="text" name="noticetitle" id="noticetitle"/>（35个字以内）
+											type="text" name="noticetitle" id="noticetitle" onkeydown="javascript:butOnClick();"/>（35个字以内）
 										</td>
 									</tr>
 									<tr>
