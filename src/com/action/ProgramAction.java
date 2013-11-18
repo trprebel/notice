@@ -41,6 +41,7 @@ public class ProgramAction extends ActionSupport{
 	private String proname;
 	private String tvtype;
 	private String state;
+	private String isrisk;
 	private String chargeperson;
 	private String weekprogress;
 	private String oriweekprogress;
@@ -88,6 +89,12 @@ public class ProgramAction extends ActionSupport{
 	}
 	public void setState(String state) {
 		this.state = state;
+	}
+	public String getIsrisk() {
+		return isrisk;
+	}
+	public void setIsrisk(String isrisk) {
+		this.isrisk = isrisk;
 	}
 	public String getWeekprogress() {
 		return weekprogress;
@@ -226,7 +233,7 @@ public class ProgramAction extends ActionSupport{
 				Date d_plandate=formattime.parse(program.getPlandate()+" 23:59:59");
 				if (d_plandate.getTime()>=currDate.getTime())
 				{
-					if(((d_plandate.getTime()-currDate.getTime())/(24*60*60*1000))<3)
+					if(program.getIsrisk()==1)
 					{
 						program.setState(2);
 					}
@@ -273,7 +280,15 @@ public class ProgramAction extends ActionSupport{
 //					return "nopower";
 //				}
 //			}
-//			
+			SimpleDateFormat formattime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			Date d_plandate=formattime.parse(program.getPlandate()+" 23:59:59");
+			//Date d_compdate=format.parse(program.getCompdate());
+			Date currDate=new Date();
+
+			if (d_plandate.getTime()<currDate.getTime())
+			{
+				program.setIsrisk(2);
+			}
 			
 			request.setAttribute("program", program);
 			//System.out.println(program.getChargeperson());
@@ -296,6 +311,11 @@ public class ProgramAction extends ActionSupport{
 			program.setProname(proname);
 			program.setTvtype(tvtype);
 			program.setState(Integer.parseInt(state));
+			if (isrisk!=null&&isrisk!="") {
+				program.setIsrisk(Integer.parseInt(isrisk));
+			}
+			else program.setIsrisk(0);
+			
 			program.setChargeperson(chargeperson);
 			program.setWeekprogress(weekprogress);
 			program.setPlandate(plandate);
@@ -320,7 +340,7 @@ public class ProgramAction extends ActionSupport{
 				ewProgress.setWeeknum(weeknum);
 				programDao.addWeekProgress(ewProgress);
 			}
-			RecordLog.recordlog("修改项目属性为："+proname+" "+tvtype+" "+state+" "+chargeperson+" "
+			RecordLog.recordlog("修改项目属性为："+proname+" "+tvtype+" "+state+" "+isrisk+" "+chargeperson+" "
 			+weekprogress+" "+plandate+" "+ evaluatedate+" "+systestdate+" "+modelevaluatedate+" "+subassdate);
 
 
@@ -514,7 +534,7 @@ public class ProgramAction extends ActionSupport{
 
 				if (d_plandate.getTime()>=currDate.getTime())
 				{
-					if(((d_plandate.getTime()-currDate.getTime())/(24*60*60*1000))<3)
+					if(program.getIsrisk()==1)
 					{
 						state.addText("风险");
 					}
@@ -600,7 +620,7 @@ public class ProgramAction extends ActionSupport{
 			Date d_plandate=formattime.parse(tracePro.getPlandate()+" 23:59:59");
 			if (d_plandate.getTime()>=currDate.getTime())
 			{
-				if(((d_plandate.getTime()-currDate.getTime())/(24*60*60*1000))<3)
+				if(tracePro.getIsrisk()==1)
 				{
 					improtantState.addText("风险");
 				}

@@ -5,6 +5,21 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <display-name></display-name>	
+  <filter> 
+        <filter-name>webMasterFilter</filter-name> 
+        <filter-class> 
+            com.action.filter.WebMasterFilter 
+        </filter-class> 
+    </filter>   
+
+    <filter-mapping> 
+        <filter-name>webMasterFilter</filter-name> 
+        <url-pattern>*.jsp</url-pattern> 
+    </filter-mapping>    
+    <filter-mapping> 
+        <filter-name>webMasterFilter</filter-name> 
+        <url-pattern>*.action</url-pattern> 
+    </filter-mapping>
   <filter>
 		<!-- 定义核心Filter的名字 -->
 		<filter-name>struts2</filter-name>

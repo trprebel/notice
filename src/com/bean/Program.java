@@ -6,6 +6,7 @@ public class Program {
 	private String proname;
 	private String tvtype;
 	private int state;
+	private int isrisk;
 	private String chargeperson;
 	private String weekprogress;
 	private String plandate;
@@ -39,6 +40,12 @@ public class Program {
 	}
 	public void setState(int state) {
 		this.state = state;
+	}
+	public int getIsrisk() {
+		return isrisk;
+	}
+	public void setIsrisk(int isrisk) {
+		this.isrisk = isrisk;
 	}
 	public String getChargeperson() {
 		return chargeperson;

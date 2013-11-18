@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <jsp:directive.page import="com.bean.User" />
+<%@taglib prefix="c" uri="/jstl/c.tld"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -194,6 +195,22 @@ body {
 												<option value="1">已完成</option>
 										</select></td>
 									</tr>
+									<c:if test="${program.isrisk!=2 }">
+									<tr>
+										<td height="28" bgcolor="#FFFFFF"><div align="right">
+												<span class="STYLE1">活动状态： </span>
+											</div></td>
+										<td bgcolor="#FFFFFF"><select class="button_chuang"
+											name="isrisk" id="isrisk">
+												<option value="0"
+												<c:if test="${program.isrisk==0 }">selected</c:if>
+												>正常</option>
+												<option value="1"
+												<c:if test="${program.isrisk==1 }">selected</c:if>
+												>风险</option>
+										</select></td>
+									</tr>
+									</c:if>
 									<tr>
 										<td height="28" bgcolor="#FFFFFF"><div align="right">
 												<span class="STYLE1">责任人： </span>

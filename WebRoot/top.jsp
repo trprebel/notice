@@ -5,7 +5,6 @@
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-	User user = (User) session.getAttribute("user");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

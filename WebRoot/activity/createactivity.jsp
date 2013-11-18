@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page import="filter.StringUtil"%>
 <jsp:directive.page import="com.bean.User" />
 <%
 	String path = request.getContextPath();
@@ -6,6 +7,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 	User user = (User) session.getAttribute("user");
+	String httpimagePath=StringUtil.getSpPropeurl("httpimagePath");
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -31,9 +33,55 @@ body {
 	width: 180px;
 	height: 20px;
 }
+.mydiv2 {
+text-align: left;
+text-indent:20px;
+line-height: 40px;
+font-size: 12px;
+font-weight: bold;
+z-index:99;
+left:28%;/*FF IE7*/
+top: 1%;/*FF IE7*/
+
+margin-left:-100px!important;/*FF IE7 ��ֵΪ��������һ�� */
+margin-top:50px!important;/*FF IE7 ��ֵΪ�����ߵ�һ��*/
+
+margin-top:0px;
+
+position:fixed!important;/*FF IE7*/
+position:absolute;/*IE6*/
+
+_top:       expression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+
+}
+.bg {
+background-color:#000000;
+width: 100%;
+height: 100%;
+left:0;
+top:0;/*FF IE7*/
+filter:alpha(opacity=20);/*IE*/
+opacity:0.2;/*FF*/
+z-index:1;
+
+position:fixed!important;/*FF IE7*/
+position:absolute;/*IE6*/
+
+_top:       expression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+
+}
 #closeimg {
 	position: relative;
-	top: -130px;
+	width:14px;
+	height:14px; 
+	overflow:hidden;
+	top: -117px;
 	right: 14px;
 }
 -->
@@ -97,6 +145,20 @@ body {
  			return false;
  		}
  	}
+
+	function showDiv3(image){
+		document.getElementById("popimage").src=image;
+		document.getElementById('popDiv3').style.display='block';
+		document.getElementById('bg').style.display='block';
+		//document.getElementById("spanButtonPlaceHolder").display="none";
+	}
+
+	function closeDiv3(){
+		document.getElementById('popDiv3').style.display='none';
+		document.getElementById('bg').style.display='none';
+	}
+
+
 	var swfu;
 	var imageid=0;
 	window.onload = function() {
@@ -126,6 +188,7 @@ body {
 			button_text_style: ".theFont { font-size: 16; }",
 			button_text_left_padding: 12,
 			button_text_top_padding: 3,
+			button_window_mode:"opaque",
 			
 			// The event handler functions are defined in handlers.js
 			file_queued_handler : fileQueued,
@@ -158,30 +221,40 @@ body {
     	        	
     	        	var image=document.createElement("img");
     	        	//image.id="image"+imageid;
-    	        	image.src=""+serverData;
+    	        	image.src="<%=httpimagePath%>"+serverData;
     	        	image.width="200";
-    	        	//image.onclick=function(){alert(v_imageid);};
+    	        	image.height="132";
+    	        	image.onclick=function(){showDiv3("<%=httpimagePath%>"+serverData);};
+    	        	image.title="点击放大";
     	        	
     	        	var close=document.createElement("img");
     	        	close.id="closeimg";
-    	        	close.src="images/cancelbutton.gif";
+    	        	close.src="images/cancelbutton1.gif";
     	        	//close.position="relative";
     	        	//close.top="-130px";
     	        	//close.right="14px";
     	        	close.onclick=function(){deleteimg(v_imageid);};
     	        	//close.width="14";
+    	        	//var magnifyimg=document.createElement("magnifyimg");
+    	        	//magnifyimg.src="images/exp.jsp";
+    	        	//magnifyimg.width="38";
+    	        	//magnifyimg.height="38";
+    	        	//magnifyimg.border="0";
     	        	
+    	        	//<img onclick="javascript:showDiv3()" src="images/exp.jpg" width="38" height="38" border="0" />
     	        	
     	        	
     	        	
     	        	var div=document.getElementById("preview");
     	        	var span=document.createElement("span");
     	        	span.id="span"+imageid;
+ 
     	        	div.appendChild(span);
     	        	span.appendChild(imagepath);
     	        	//div.innerHTML="<img id='image"+imageid+"' src='"+serverData+"' width='200' onclick='alert("+imageid+")'>";
     	        	span.appendChild(image);
     	        	span.appendChild(close);
+    	        	//span.appendChild(magnifyimg);
     	        	imageid++;
     	            var currentTime = new Date();
     				var progress = new FileProgress(file, this.customSettings.progressTarget);
@@ -337,7 +410,10 @@ body {
 			</tr>
 		</table>
 	</form>
-
+	<div id="popDiv3" class="mydiv2" style="display:none;">
+	<div align="right" class="pop_button"><a href="javascript:closeDiv3()"><img id="popimage" src="images/ima.jpg" border="0" width="800" /></a></div>
+	</div>
+	<div id="bg" class="bg" style="display:none;"></div>
 </body>
 <script type="text/javascript">
   if('${messages}'!="")
