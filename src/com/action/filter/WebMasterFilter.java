@@ -26,9 +26,9 @@ import com.bean.User;
  * @version 1.0
  */
 public class WebMasterFilter implements Filter{   
-	private String[] commons={"authcode.jsp","login.jsp","login.action",
+	private String[] commons={"authcode.jsp","login.jsp","login.action","pictureACTIVITY.action",
 			"show.action","weekPROGRAM.action","monthPROGRAM.action","activityACTIVITY.action",
-			"noticeNOTICE.action"};  
+			"noticeNOTICE.action","top.jsp","left_activity.jsp","left_notice.jsp","left_sysconf.jsp","left.jsp"};  
 	
     public void destroy() {   
     	
@@ -41,7 +41,6 @@ public class WebMasterFilter implements Filter{
         HttpSession session = request.getSession();   
 
 		String req_path = request.getRequestURI();
-		//System.out.println(req_path);
 		if(req_path.equals("/Notice/"))
 		{
 			chain.doFilter(req, res);
@@ -61,6 +60,7 @@ public class WebMasterFilter implements Filter{
     	// 不过滤登录退出
 
         if(user == null){
+        	System.out.println(req_path);
         	res.setCharacterEncoding("UTF-8");
         	response.setContentType("text/html; charset=UTF-8"); 
         	String str ="请先登录系统再进行操作!";
@@ -69,7 +69,7 @@ public class WebMasterFilter implements Filter{
         } else
         	chain.doFilter(req, res);
 
-    }   
+    }
   
     public void init(FilterConfig arg0) throws ServletException {   
     	//commons = StringUtil.getSpPropeurl("common").split("\\|");     

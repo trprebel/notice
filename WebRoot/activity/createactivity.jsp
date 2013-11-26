@@ -138,6 +138,7 @@ _top:       expression(eval(document.compatMode &&
 		//div.removeChild(imagepath);
 		//div.removeChild(image);
 		div.removeChild(span);
+		imagenum--;
 	}
 	function butOnClick() { 
  		if(event.keyCode == 13) { 
@@ -161,6 +162,7 @@ _top:       expression(eval(document.compatMode &&
 
 	var swfu;
 	var imageid=0;
+	var imagenum=0;
 	window.onload = function() {
 		//alert("script");
 		var settings = {
@@ -221,7 +223,7 @@ _top:       expression(eval(document.compatMode &&
     	        	
     	        	var image=document.createElement("img");
     	        	//image.id="image"+imageid;
-    	        	image.src="<%=httpimagePath%>"+serverData;
+    	        	image.src=""+serverData;
     	        	image.width="200";
     	        	image.height="132";
     	        	image.onclick=function(){showDiv3("<%=httpimagePath%>"+serverData);};
@@ -256,6 +258,7 @@ _top:       expression(eval(document.compatMode &&
     	        	span.appendChild(close);
     	        	//span.appendChild(magnifyimg);
     	        	imageid++;
+    	        	imagenum++;
     	            var currentTime = new Date();
     				var progress = new FileProgress(file, this.customSettings.progressTarget);
     				progress.setComplete();

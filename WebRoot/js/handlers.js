@@ -118,14 +118,23 @@ function uploadStart(file) {
 		we can do is say we are uploading.
 		 */
 		//Capture start time
-		var currentTime = new Date()
+		//alert(imagenum);
+		if(imagenum<30)
+		{
+			var currentTime = new Date()
 			iTime = currentTime;
-		//Set Timeleft to estimating
-		Timeleft = "计算中...";
+			//Set Timeleft to estimating
+			Timeleft = "计算中...";
 
-		var progress = new FileProgress(file, this.customSettings.progressTarget);
-		progress.setStatus("开始上传...");
-		progress.toggleCancel(true, this);
+			var progress = new FileProgress(file, this.customSettings.progressTarget);
+			progress.setStatus("开始上传...");
+			progress.toggleCancel(true, this);
+		}
+		else {
+			alert("最多上传30张图片！");
+			swfu.cancelQueue();
+		}
+		
 	}
 	catch (ex) {}
 	

@@ -171,17 +171,32 @@ public class SysconfAction extends ActionSupport{
 		HttpServletRequest request=ServletActionContext.getRequest();
 		try {
 			//System.out.println("createuser");
-			User user=new User();
-			user.setUsername(username);
-			user.setPassword(password);
-			user.setRoleid(Integer.parseInt(roleid));
+			
 			UserDao userDao=new UserDao();
-			userDao.createUser(user);
-			List<Role> roles=sysConfDao.findAllRole();			
-			//System.out.println("user=="+user.getUsername());
-			request.setAttribute("roles", roles);
-			messages="创建成功！";
-			return "create";
+			//User user=new User();
+			
+			User user=userDao.findUserByName(username);
+			if (user!=null) {
+				messages="用户已存在";
+				List<Role> roles=sysConfDao.findAllRole();
+				request.setAttribute("roles", roles);
+				return "create";
+			}
+			else {
+				user=new User();
+				user.setUsername(username);
+				user.setPassword(password);
+				user.setRoleid(Integer.parseInt(roleid));
+				userDao.createUser(user);
+				List<Role> roles=sysConfDao.findAllRole();			
+				//System.out.println("user=="+user.getUsername());
+				request.setAttribute("roles", roles);
+				messages="创建成功！";
+				return "create";
+			}
+			
+			
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
